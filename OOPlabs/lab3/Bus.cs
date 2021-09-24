@@ -64,9 +64,8 @@ namespace lab3
 
         public override bool Equals(object obj)
         {
-            if (obj is Bus)
+            if (obj is Bus bus)
             {
-                Bus bus = (Bus)obj;
                 return (bus.Name == Name && bus.Number == Number);
             }
             return false;
