@@ -17,10 +17,10 @@ namespace lab9
         {
             OnWork.Invoke();
         }
-        public delegate void Upgrade();
-        public delegate void Work();
+        public delegate void UpgradeAllHandler();
+        public delegate void WorkHandler();
 
-        public event Upgrade OnUpgradeAll;
-        public event Work OnWork;
+        public event UpgradeAllHandler OnUpgradeAll;
+        public event WorkHandler OnWork;
     }
 }
