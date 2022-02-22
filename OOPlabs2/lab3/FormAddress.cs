@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace lab3
+namespace lab2
 {
     public partial class FormAddress : Form
     {
@@ -34,12 +34,12 @@ namespace lab3
                     textBox_ApartmentNumber.Text
                     );
                 dataGridView_addreses.Rows.Add(
-                    address.Country, 
-                    address.City, 
-                    address.District, 
-                    address.Street, 
-                    address.House, 
-                    address.Building, 
+                    address.Country,
+                    address.City,
+                    address.District,
+                    address.Street,
+                    address.House,
+                    address.Building,
                     address.ApartmentNumber
                     );
                 data.AddAddress(address);

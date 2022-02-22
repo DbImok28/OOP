@@ -1,5 +1,5 @@
 ﻿
-namespace lab3
+namespace lab2
 {
     partial class FormApartment
     {
@@ -58,6 +58,7 @@ namespace lab3
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button_save = new System.Windows.Forms.Button();
             this.button_load = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Footage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Floor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_NumberOfRooms)).BeginInit();
@@ -304,11 +305,22 @@ namespace lab3
             this.button_load.UseVisualStyleBackColor = true;
             this.button_load.Click += new System.EventHandler(this.button_load_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(424, 493);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(112, 23);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "Search";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormApartment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1040, 527);
+            this.ClientSize = new System.Drawing.Size(1052, 527);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button_load);
             this.Controls.Add(this.button_save);
             this.Controls.Add(this.dataGridView_Apartaments);
@@ -369,6 +381,7 @@ namespace lab3
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.Button button_save;
         private System.Windows.Forms.Button button_load;
+        private System.Windows.Forms.Button button1;
     }
 }
 

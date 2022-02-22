@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 
-namespace lab3
+namespace lab2
 {
     public class DataController
     {

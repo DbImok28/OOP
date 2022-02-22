@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace lab3
+namespace lab2
 {
     public partial class FormApartment : Form
     {
@@ -29,7 +29,7 @@ namespace lab3
         private void button_add_Click(object sender, EventArgs e)
         {
             try 
-            { 
+            {
                 var apartment = new Apartment(
                     (int)numericUpDown_Footage.Value,
                     trackBar_NumberOfRooms.Value,
@@ -104,6 +104,11 @@ namespace lab3
         ~FormApartment()
         {
             data.Save();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new SearchForm(data.apartments).ShowDialog();
         }
     }
 }

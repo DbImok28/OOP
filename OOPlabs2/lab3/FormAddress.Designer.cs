@@ -1,5 +1,5 @@
 ﻿
-namespace lab3
+namespace lab2
 {
     partial class FormAddress
     {
