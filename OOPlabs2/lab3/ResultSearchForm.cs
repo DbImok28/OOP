@@ -16,6 +16,19 @@ namespace lab2
         {
             this.data = data;
             InitializeComponent();
+            UpdateTable();
+        }
+        List<Apartment> data;
+        private void button_search_Click(object sender, EventArgs e)
+        {
+            var form = new SearchForm(data);
+            form.ShowDialog();
+            data = form.data;
+            UpdateTable();
+        }
+        public void UpdateTable()
+        {
+            dataGridView_Apartaments.Rows.Clear();
             foreach (var item in data)
             {
                 dataGridView_Apartaments.Rows.Add(
@@ -33,10 +46,6 @@ namespace lab2
             }
             Update();
         }
-        List<Apartment> data;
-        private void button_search_Click(object sender, EventArgs e)
-        {
-            new SearchForm(data).ShowDialog();
-        }
+
     }
 }

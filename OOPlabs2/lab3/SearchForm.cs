@@ -21,24 +21,28 @@ namespace lab2
 
         private void button_rooms_Click(object sender, EventArgs e)
         {
-            FindAndShow(item => item.NumberOfRooms.ToString());
+            Find(item => item.NumberOfRooms.ToString());
+            Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FindAndShow(item => item.YearOfConstruction.ToString());
+            Find(item => item.YearOfConstruction.ToString());
+            Close();
         }
 
         private void button_city_Click(object sender, EventArgs e)
         {
-            FindAndShow(item => item.AddressOfRoom.City);
+            Find(item => item.AddressOfRoom.City);
+            Close();
         }
 
         private void button_District_Click(object sender, EventArgs e)
         {
-            FindAndShow(item => item.AddressOfRoom.District);
+            Find(item => item.AddressOfRoom.District);
+            Close();
         }
-        public void FindAndShow(Func<Apartment, string> field)
+        public void Find(Func<Apartment, string> field)
         {
             try
             {
@@ -51,7 +55,8 @@ namespace lab2
                         result.Add(item);
                     }
                 }
-                new ResultSearchForm(result).ShowDialog();
+                data = result;              
+                //new ResultSearchForm(result).ShowDialog();
             }
             catch (Exception exc)
             {
@@ -59,6 +64,6 @@ namespace lab2
                 return;
             }
         }
-        private List<Apartment> data;
+        public List<Apartment> data { get; private set; }
     }
 }

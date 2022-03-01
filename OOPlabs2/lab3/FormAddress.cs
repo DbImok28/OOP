@@ -33,6 +33,7 @@ namespace lab2
                     textBox_Building.Text,
                     textBox_ApartmentNumber.Text
                     );
+                data.AddAddress(address);
                 dataGridView_addreses.Rows.Add(
                     address.Country,
                     address.City,
@@ -42,7 +43,6 @@ namespace lab2
                     address.Building,
                     address.ApartmentNumber
                     );
-                data.AddAddress(address);
             }
             catch (Exception exc)
             {

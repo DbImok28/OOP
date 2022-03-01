@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Xml.Serialization;
 
@@ -14,10 +15,15 @@ namespace lab2
         }
         public void AddApartment(Apartment apartment)
         {
+            var context = new ValidationContext(apartment);
+            Validator.ValidateObject(apartment, context, true);
             apartments.Add(apartment);
+            
         }
         public void AddAddress(Address address)
         {
+            var context = new ValidationContext(address);
+            Validator.ValidateObject(address, context, true);
             addresses.Add(address);
         }
         public void Save()
@@ -25,9 +31,22 @@ namespace lab2
             SerializeToXML("Apartment.xml", apartments);
             SerializeToXML("Address.xml", addresses);
         }
+        public static void Save(List<Apartment> apartments, string path)
+        {
+            SerializeToXML(path, apartments);
+        }
         public void Load()
         {
             apartments = DeserializeXML<List<Apartment>>("Apartment.xml");
+            addresses = DeserializeXML<List<Address>>("Address.xml");
+        }
+        public static void Load(out List<Apartment> apartments, string path)
+        {
+            apartments = DeserializeXML<List<Apartment>>(path);
+        }
+        public void Load(string apartmentPath)
+        {
+            apartments = DeserializeXML<List<Apartment>>(apartmentPath);
             addresses = DeserializeXML<List<Address>>("Address.xml");
         }
         private static void SerializeToXML<T>(string path, T data)
