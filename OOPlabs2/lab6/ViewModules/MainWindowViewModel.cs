@@ -27,24 +27,12 @@ namespace lab6.ViewModules
             set => Set(ref _Status, value);
         }
         #endregion
-        #region NavigationItems
-        private ObservableCollection<Models.NavigationItem> _NavigationItems = new ObservableCollection<Models.NavigationItem> {
-            new Models.NavigationItem( "Фрукты", "/Resources/fruits.png"), new Models.NavigationItem("Овощи", "/Resources/vegetables.png") 
-        };
-        public ObservableCollection<Models.NavigationItem> NavigationItems
+        #region ShopSections
+        private ObservableCollection<Models.ShopSection> _ShopSections;
+        public ObservableCollection<Models.ShopSection> ShopSections
         {
-            get => _NavigationItems;
-            set => Set(ref _NavigationItems, value);
-        }
-        #endregion
-        #region Products
-        private ObservableCollection<Models.Product> _Products = new ObservableCollection<Models.Product> {
-            new Models.Product( "Яблоко","Яблоко дружба", 10, "banana"), new Models.Product( "Лимон","Лимон кислый", 20, "Resources\\fruits.png")
-        };
-        public ObservableCollection<Models.Product> Products
-        {
-            get => _Products;
-            set => Set(ref _Products, value);
+            get => _ShopSections;
+            set => Set(ref _ShopSections, value);
         }
         #endregion
         #region Commands
@@ -61,6 +49,25 @@ namespace lab6.ViewModules
             #region Commands
             CloseApplicationCommand = new Infrastructure.Commands.LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
             #endregion
+
+            ShopSections = new ObservableCollection<Models.ShopSection> {
+                new Models.ShopSection(
+                    "Фрукты",
+                    "/Resources/fruits.png",
+                    new ObservableCollection<Models.Product>{
+                        new Models.Product( "Яблоко","Яблоко дружба", 10, "banana"),
+                        new Models.Product( "Лимон","Лимон кислый", 20, "Resources\\fruits.png")
+                    }
+                ),
+                new Models.ShopSection(
+                    "Овощи",
+                    "/Resources/vegetables.png",
+                    new ObservableCollection<Models.Product>{
+                    new Models.Product( "Огурец","Огурец столичный", 10, "banana"),
+                    new Models.Product( "Тыква","Тыква из хэллоуина", 20, "Resources\\fruits.png")
+                    }
+                )
+            };
         }
     }
 }
