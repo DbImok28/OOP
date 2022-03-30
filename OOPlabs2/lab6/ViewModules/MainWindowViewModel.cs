@@ -56,6 +56,8 @@ namespace lab6.ViewModules
                     "/Resources/fruits.png",
                     new ObservableCollection<Models.Product>{
                         new Models.Product( "Яблоко","Яблоко дружба", 10, "banana"),
+                        new Models.Product( "Груша","Груша богатырская", 20, "Resources\\fruits.png"),
+                        new Models.Product( "Персик","Персик заморский", 20, "Resources\\fruits.png"),
                         new Models.Product( "Лимон","Лимон кислый", 20, "Resources\\fruits.png")
                     }
                 ),

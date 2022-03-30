@@ -22,7 +22,7 @@
     <DockPanel>
         <WrapPanel DockPanel.Dock="Right" MinWidth="200" VerticalAlignment="Top" HorizontalAlignment="Right">
             <DockPanel Background="LightBlue" Height="50" Margin="10">
-                <fa:FontAwesome Icon="ShoppingCart" FontSize="32" VerticalAlignment="Top" Margin="8" DockPanel.Dock="Right"/>
+                <fa:FontAwesome Icon="ShoppingCart" FontSize="32" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="8" DockPanel.Dock="Right"/>
                 <TextBlock TextWrapping="Wrap" Text="{Binding Status}" Margin="5" VerticalAlignment="Center" DockPanel.Dock="Left"/>
             </DockPanel>
         </WrapPanel>
@@ -37,19 +37,18 @@
             </TabControl.ItemTemplate>
             <TabControl.ContentTemplate>
                 <DataTemplate>
-                    <DockPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8" DockPanel.Dock="Bottom">
-                        <WrapPanel>
-                            <Rectangle Style="{StaticResource ProductItem}" Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" VerticalAlignment="Top"/>
-                            <Rectangle Style="{StaticResource ProductItem}" Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" VerticalAlignment="Top"/>
-                            <Rectangle Style="{StaticResource ProductItem}" Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" VerticalAlignment="Top"/>
-                            <Rectangle Style="{StaticResource ProductItem}" Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" VerticalAlignment="Top"/>
-                            <Rectangle Style="{StaticResource ProductItem}" Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" VerticalAlignment="Top"/>
-                            <Rectangle Style="{StaticResource ProductItem}" Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" VerticalAlignment="Top"/>
-                            <Rectangle Style="{StaticResource ProductItem}" Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" VerticalAlignment="Top"/>
-                            <Rectangle Style="{StaticResource ProductItem}" Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" VerticalAlignment="Top"/>
-                            <Rectangle Style="{StaticResource ProductItem}" Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" VerticalAlignment="Top"/>
-                        </WrapPanel>
-                    </DockPanel>
+                    <ListBox ItemsSource="{Binding Products}" DockPanel.Dock="Bottom" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Rectangle Style="{StaticResource ProductItem}" Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" VerticalAlignment="Top"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8" DockPanel.Dock="Bottom"></WrapPanel>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                    </ListBox>
                 </DataTemplate>
             </TabControl.ContentTemplate>
         </TabControl>
