@@ -115,5 +115,47 @@
   <ItemGroup>
     <Resource Include="Resources\vegetables.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\berries.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\grapes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\blueberry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\carrot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\cucumber.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\banana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\pumpkins.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\apple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\cherry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\lemon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\pear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\peach.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\cabbage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\onion.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

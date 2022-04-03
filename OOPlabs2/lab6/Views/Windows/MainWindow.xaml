@@ -8,7 +8,7 @@
         xmlns:vm="clr-namespace:lab6.ViewModules"
         xmlns:local="clr-namespace:lab6"
         mc:Ignorable="d"
-        Title="{Binding Title}" Height="518.562" Width="839.875">
+        Title="{Binding Title}" Height="518.562" Width="845.875">
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
@@ -20,13 +20,13 @@
         </Style>
     </Window.Resources>
     <DockPanel>
-        <WrapPanel DockPanel.Dock="Right" MinWidth="200" VerticalAlignment="Top" HorizontalAlignment="Right">
-            <DockPanel Background="LightBlue" Height="50" Margin="10">
+        <StackPanel DockPanel.Dock="Right" Width="200" HorizontalAlignment="Right">
+            <DockPanel Background="LightBlue" Height="50">
                 <fa:FontAwesome Icon="ShoppingCart" FontSize="32" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="8" DockPanel.Dock="Right"/>
                 <TextBlock TextWrapping="Wrap" Text="{Binding Status}" Margin="5" VerticalAlignment="Center" DockPanel.Dock="Left"/>
             </DockPanel>
-        </WrapPanel>
-        <TabControl ItemsSource="{Binding ShopSections}" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="400" DockPanel.Dock="Left">
+        </StackPanel>
+        <TabControl ItemsSource="{Binding ShopSections}" DockPanel.Dock="Left">
             <TabControl.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Height="34" Orientation="Horizontal">
@@ -37,10 +37,16 @@
             </TabControl.ItemTemplate>
             <TabControl.ContentTemplate>
                 <DataTemplate>
-                    <ListBox ItemsSource="{Binding Products}" DockPanel.Dock="Bottom" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <ListBox ItemsSource="{Binding Products}" DockPanel.Dock="Bottom" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderBrush="{x:Null}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <Rectangle Style="{StaticResource ProductItem}" Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" VerticalAlignment="Top"/>
+                                <StackPanel Width="160" Orientation="Horizontal">
+                                    <Image Source="{Binding Image}" Width="80" Height="80" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                                    <StackPanel Margin="8">
+                                        <TextBlock Text="{Binding Name}" Height="20" VerticalAlignment="Top"/>
+                                        <TextBlock Text="{Binding Price, StringFormat=Цена {0}}"/>
+                                    </StackPanel>
+                                </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                         <ListBox.ItemsPanel>
