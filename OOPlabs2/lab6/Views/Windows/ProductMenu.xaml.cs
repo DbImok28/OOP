@@ -1,6 +1,4 @@
-﻿using lab6.Models;
-using lab6.Views.Windows;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace lab6
+namespace lab6.Views.Windows
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ProductMenu.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ProductMenu : Page
     {
-        public MainWindow()
+        public ProductMenu()
         {
             InitializeComponent();
         }

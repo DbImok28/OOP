@@ -5,8 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using lab6.Models;
+using lab6.Views.Windows;
 
 namespace lab6.ViewModules
 {
@@ -40,14 +42,48 @@ namespace lab6.ViewModules
 
         #region CloseApplicationCommand
         public ICommand CloseApplicationCommand { get; }
-        private void OnCloseApplicationCommandExecuted(object par) => Application.Current.Shutdown();   
+        private void OnCloseApplicationCommandExecuted(object par) => Application.Current.Shutdown();
         private bool CanCloseApplicationCommandExecute(object par) => true;
+        #endregion
+        #region OpenProductPageCommand
+        public ICommand OpenProductPageCommand { get; }
+        private void OnOpenProductPageCommandExecuted(object par)
+        {
+            SelectedProduct = par as Product;
+            CurrentPage = productInfoPage;
+        }
+        private bool CanOpenProductPageCommandExecute(object par) => true;
+        #endregion
+        #region OpenHomePageCommand
+        public ICommand OpenHomePageCommand { get; }
+        private void OnOpenHomePageCommandExecuted(object par) => CurrentPage = homePage;
+        private bool CanOpenHomePageCommandExecute(object par) => true;
         #endregion
         #endregion
 
+        private HomePage homePage;
+        private ProductInfoPage productInfoPage;
+        #region CurrentPage
+        private Page _CurrentPage;
+        public Page CurrentPage
+        {
+            get => _CurrentPage;
+            set => Set(ref _CurrentPage, value);
+        }
+        #endregion
+        #region SelectedProduct
+        private Product _SelectedProduct;
+        public Product SelectedProduct
+        {
+            get => _SelectedProduct;
+            set => Set(ref _SelectedProduct, value);
+        }
+        #endregion
         public MainWindowViewModel()
         {
             #region Commands
+            OpenProductPageCommand = new Infrastructure.Commands.LambdaCommand(OnOpenProductPageCommandExecuted, CanOpenProductPageCommandExecute);
+            OpenHomePageCommand = new Infrastructure.Commands.LambdaCommand(OnOpenHomePageCommandExecuted, CanOpenHomePageCommandExecute);
             CloseApplicationCommand = new Infrastructure.Commands.LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
             #endregion
 
@@ -83,6 +119,9 @@ namespace lab6.ViewModules
                     }
                 )
             };
+            productInfoPage = new ProductInfoPage(this, OpenHomePageCommand);
+            homePage = new HomePage(this, OpenProductPageCommand);
+            CurrentPage = homePage;
         }
     }
 }

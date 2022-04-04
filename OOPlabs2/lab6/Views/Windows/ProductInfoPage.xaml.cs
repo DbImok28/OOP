@@ -1,7 +1,6 @@
-﻿using lab6.Models;
-using lab6.Views.Windows;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,16 +14,25 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace lab6
+namespace lab6.Views.Windows
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ProductInfoPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ProductInfoPage : Page
     {
-        public MainWindow()
+        public ProductInfoPage(INotifyPropertyChanged baseVM, ICommand goHome)
         {
             InitializeComponent();
+            DataContext = baseVM;
+            GoHome = goHome;
+        }
+
+        private readonly ICommand GoHome;
+
+        private void Go_Home(object sender, RoutedEventArgs e)
+        {
+            GoHome.Execute(this);
         }
     }
 }
