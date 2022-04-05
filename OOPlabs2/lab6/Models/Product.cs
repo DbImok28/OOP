@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace lab6.Models
 {
+    [Serializable]
     public class Product
     {
         public Product(string name, string fullName, int price, string image)
@@ -14,6 +15,13 @@ namespace lab6.Models
             FullName = fullName;
             Price = price;
             Image = image;
+        }
+        public Product()
+        {
+            Name = "None";
+            FullName = "None";
+            Price = -1;
+            Image = "None";
         }
 
         public string Name { get; set; }

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfShopSection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ShopSection>
+    <Name>Фрукты</Name>
+    <Icon>/Resources/fruits.png</Icon>
+    <Products>
+      <Product>
+        <Name>Яблоко</Name>
+        <FullName>Яблоко дружба</FullName>
+        <Price>15</Price>
+        <Image>/Resources/apple.png</Image>
+      </Product>
+      <Product>
+        <Name>Груша</Name>
+        <FullName>Груша богатырская</FullName>
+        <Price>20</Price>
+        <Image>/Resources/pear.png</Image>
+      </Product>
+      <Product>
+        <Name>Персик</Name>
+        <FullName>Персик заморский</FullName>
+        <Price>30</Price>
+        <Image>/Resources/peach.png</Image>
+      </Product>
+      <Product>
+        <Name>Лимон</Name>
+        <FullName>Лимон кислый</FullName>
+        <Price>20</Price>
+        <Image>/Resources/lemon.png</Image>
+      </Product>
+      <Product>
+        <Name>Банан</Name>
+        <FullName>Банан вкусный</FullName>
+        <Price>15</Price>
+        <Image>/Resources/banana.png</Image>
+      </Product>
+    </Products>
+  </ShopSection>
+  <ShopSection>
+    <Name>Овощи</Name>
+    <Icon>/Resources/vegetables.png</Icon>
+    <Products>
+      <Product>
+        <Name>Огурец</Name>
+        <FullName>Огурец столичный</FullName>
+        <Price>8</Price>
+        <Image>/Resources/cucumber.png</Image>
+      </Product>
+      <Product>
+        <Name>Морковь</Name>
+        <FullName>Морква деревенска</FullName>
+        <Price>8</Price>
+        <Image>/Resources/carrot.png</Image>
+      </Product>
+      <Product>
+        <Name>Тыква</Name>
+        <FullName>Тыква из хэллоуина</FullName>
+        <Price>45</Price>
+        <Image>/Resources/pumpkins.png</Image>
+      </Product>
+      <Product>
+        <Name>Лук</Name>
+        <FullName>Лук зеленый</FullName>
+        <Price>20</Price>
+        <Image>/Resources/onion.png</Image>
+      </Product>
+      <Product>
+        <Name>Капуста</Name>
+        <FullName>Капуста земная</FullName>
+        <Price>20</Price>
+        <Image>/Resources/cabbage.png</Image>
+      </Product>
+    </Products>
+  </ShopSection>
+  <ShopSection>
+    <Name>Ягоды</Name>
+    <Icon>/Resources/berries.png</Icon>
+    <Products>
+      <Product>
+        <Name>Виноград</Name>
+        <FullName>Виноград кислый</FullName>
+        <Price>10</Price>
+        <Image>/Resources/grapes.png</Image>
+      </Product>
+      <Product>
+        <Name>Черника</Name>
+        <FullName>Черника ночная</FullName>
+        <Price>20</Price>
+        <Image>/Resources/blueberry.png</Image>
+      </Product>
+      <Product>
+        <Name>Вишня</Name>
+        <FullName>Вишня синяя</FullName>
+        <Price>20</Price>
+        <Image>/Resources/cherry.png</Image>
+      </Product>
+    </Products>
+  </ShopSection>
+</ArrayOfShopSection>

@@ -35,5 +35,21 @@ namespace lab6.Views.Windows
             var product = (sender as ListBox).SelectedItem as Product;
             showSelectProduct.Execute(product);
         }
+
+        private void CollectionViewSource_Filter(object sender, FilterEventArgs e)
+        {
+            if (!(e.Item is Product product) || product is null) return;
+            var filterText = FilterBox.Text;
+            //if (product.Name.Contains(filterText, StringComparison.OrdinalIgnoreCase)) return;
+            if (product.Name.Contains(filterText)) return;
+            e.Accepted = false;
+        }
+
+        private void FilterBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var box = sender as TextBox;
+            var collection = box.FindResource("ProductsGroups") as CollectionViewSource;
+            collection.View.Refresh();
+        }
     }
 }
