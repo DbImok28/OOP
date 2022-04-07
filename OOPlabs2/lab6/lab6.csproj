@@ -65,12 +65,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\FileReader.cs" />
+    <Compile Include="Views\Windows\CompliteShoppingPage.xaml.cs">
+      <DependentUpon>CompliteShoppingPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\ProductInfoPage.xaml.cs">
       <DependentUpon>ProductInfoPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\Windows\CompliteShoppingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Windows\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -176,6 +183,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Products.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\corn_cur.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\corn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

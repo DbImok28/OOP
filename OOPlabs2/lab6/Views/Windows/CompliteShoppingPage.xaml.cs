@@ -17,11 +17,11 @@ using System.Windows.Shapes;
 namespace lab6.Views.Windows
 {
     /// <summary>
-    /// Interaction logic for ProductInfoPage.xaml
+    /// Interaction logic for CompliteShopingPage.xaml
     /// </summary>
-    public partial class ProductInfoPage : Page
+    public partial class CompliteShopingPage : Page
     {
-        public ProductInfoPage(INotifyPropertyChanged baseVM)
+        public CompliteShopingPage(INotifyPropertyChanged baseVM)
         {
             InitializeComponent();
             DataContext = baseVM;

@@ -86,7 +86,9 @@
             <StackPanel>
                 <Border CornerRadius="10" Background="LightBlue" BorderBrush="Gray" BorderThickness="1">
                     <DockPanel Height="50">
-                        <fa:FontAwesome Icon="ShoppingCart" FontSize="32" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="8" DockPanel.Dock="Right"/>
+                        <Button Command="{Binding OpenCompliteShoppingPageCommand}" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="8" DockPanel.Dock="Right" Padding="0">
+                            <fa:FontAwesome Icon="ShoppingCart" FontSize="32"/>
+                        </Button>
                         <TextBlock TextWrapping="Wrap" Text="{Binding Status}" Margin="5" VerticalAlignment="Center" DockPanel.Dock="Left"/>
                     </DockPanel>
                 </Border>
@@ -139,7 +141,6 @@
                         </Setter.Value>
                     </Setter>
                 </Style>
-                
             </TabControl.Resources>
             <TabControl.ItemTemplate>
                 <DataTemplate>

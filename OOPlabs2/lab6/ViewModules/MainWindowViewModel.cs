@@ -60,6 +60,7 @@ namespace lab6.ViewModules
         private void OnAddToShoppingCartCommandExecuted(object par)
         {
             ShopingCart.Add(SelectedProduct);
+            OnPropertyChanged(nameof(FullPrice));
         }
         private bool CanAddToShoppingCartCommandExecute(object par) => true;
         #endregion
@@ -82,10 +83,16 @@ namespace lab6.ViewModules
         private void OnOpenHomePageCommandExecuted(object par) => CurrentPage = homePage;
         private bool CanOpenHomePageCommandExecute(object par) => true;
         #endregion
+        #region OpenCompliteShoppingPageCommand
+        public ICommand OpenCompliteShoppingPageCommand { get; }
+        private void OnOpenCompliteShoppingPageCommandExecuted(object par) => CurrentPage = compliteShopingPage;
+        private bool CanOpenCompliteShoppingPageCommandExecute(object par) => true;
         #endregion
-
+        #endregion
+        public decimal FullPrice => ShopingCart.Sum(x => x.Price);
         private HomePage homePage;
         private ProductInfoPage productInfoPage;
+        private CompliteShopingPage compliteShopingPage;
         #region CurrentPage
         private Page _CurrentPage;
         public Page CurrentPage
@@ -109,44 +116,12 @@ namespace lab6.ViewModules
             OpenProductPageCommand = new Infrastructure.Commands.LambdaCommand(OnOpenProductPageCommandExecuted, CanOpenProductPageCommandExecute);
             OpenHomePageCommand = new Infrastructure.Commands.LambdaCommand(OnOpenHomePageCommandExecuted, CanOpenHomePageCommandExecute);
             CloseApplicationCommand = new Infrastructure.Commands.LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
+            OpenCompliteShoppingPageCommand = new Infrastructure.Commands.LambdaCommand(OnOpenCompliteShoppingPageCommandExecuted, CanOpenCompliteShoppingPageCommandExecute);
             #endregion
-
-            //ShopSections = new ObservableCollection<ShopSection> {
-            //    new ShopSection(
-            //        "Фрукты",
-            //        "/Resources/fruits.png",
-            //        new ObservableCollection<Product>{
-            //            new Product( "Яблоко","Яблоко дружба", 15, "/Resources/apple.png"),
-            //            new Product( "Груша","Груша богатырская", 20, "/Resources/pear.png"),
-            //            new Product( "Персик","Персик заморский", 30, "/Resources/peach.png"),
-            //            new Product( "Лимон","Лимон кислый", 20, "/Resources/lemon.png"),
-            //            new Product( "Банан","Банан вкусный", 15, "/Resources/banana.png")
-            //        }
-            //    ),
-            //    new ShopSection(
-            //        "Овощи",
-            //        "/Resources/vegetables.png",
-            //        new ObservableCollection<Product>{
-            //        new Product( "Огурец","Огурец столичный", 8, "/Resources/cucumber.png"),
-            //        new Product( "Морковь","Морква деревенска", 8, "/Resources/carrot.png"),
-            //        new Product( "Тыква","Тыква из хэллоуина", 45, "/Resources/pumpkins.png"),
-            //        new Product( "Лук","Лук зеленый", 20, "/Resources/onion.png"),
-            //        new Product( "Капуста","Капуста земная", 20, "/Resources/cabbage.png")
-            //        }
-            //    ),new ShopSection(
-            //        "Ягоды",
-            //        "/Resources/berries.png",
-            //        new ObservableCollection<Product>{
-            //        new Product( "Виноград","Виноград кислый", 10, "/Resources/grapes.png"),
-            //        new Product( "Черника","Черника ночная", 20, "/Resources/blueberry.png"),
-            //        new Product( "Вишня","Вишня синяя", 20, "/Resources/cherry.png")
-            //        }
-            //    )
-            //};
-            //FileReader.SerializeToXML("Products.xml", ShopSections);
             ShopSections = FileReader.DeserializeXML<ObservableCollection<ShopSection>>("Products.xml");
             SelectedShopSection = ShopSections[0];
-            productInfoPage = new ProductInfoPage(this, OpenHomePageCommand);
+            productInfoPage = new ProductInfoPage(this);
+            compliteShopingPage = new CompliteShopingPage(this);
             homePage = new HomePage(this, OpenProductPageCommand);
             CurrentPage = homePage;
         }

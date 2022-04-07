@@ -20,7 +20,7 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button Click="Go_Home" Width="30" Height="30" Background="LightBlue">
+        <Button Command="{Binding OpenHomePageCommand}" Width="30" Height="30" Background="LightBlue">
             <fa:FontAwesome Icon="Backward"></fa:FontAwesome>
         </Button>
         <StackPanel Grid.Column="1" Grid.Row="1">
@@ -47,8 +47,10 @@
                 <StackPanel>
             <Border CornerRadius="10" Background="LightBlue" BorderBrush="Gray" BorderThickness="1">
                 <DockPanel Height="50">
-                    <fa:FontAwesome Icon="ShoppingCart" FontSize="32" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="8" DockPanel.Dock="Right"/>
-                    <TextBlock TextWrapping="Wrap" Text="{Binding Status}" Margin="5" VerticalAlignment="Center" DockPanel.Dock="Left"/>
+                            <Button Command="{Binding OpenCompliteShoppingPageCommand}" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="8" DockPanel.Dock="Right" Padding="0">
+                                <fa:FontAwesome Icon="ShoppingCart" FontSize="32"/>
+                            </Button>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Status}" Margin="5" VerticalAlignment="Center" DockPanel.Dock="Left"/>
                 </DockPanel>
             </Border>
                     <ListBox ItemsSource="{Binding ShopingCart}" Background="{x:Null}" BorderThickness="0" Padding="0">
