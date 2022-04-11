@@ -7,23 +7,30 @@
       <Product>
         <Name>Яблоко</Name>
         <FullName>Яблоко дружба</FullName>
+		    <Description>Яблоко — сочный плод яблони, который употребляется в пищу в свежем и запеченном виде, служит сырьём в кулинарии и для приготовления напитков.</Description>
+		    <Country>Россия</Country>
         <Price>15</Price>
         <Image>/Resources/apple.png</Image>
       </Product>
       <Product>
         <Name>Груша</Name>
         <FullName>Груша богатырская</FullName>
+        <Description>Груша — род плодовых и декоративных деревьев и кустарников семейства Розовые.</Description>
+        <Country>Россия</Country>
         <Price>20</Price>
         <Image>/Resources/pear.png</Image>
       </Product>
       <Product>
         <Name>Персик</Name>
+        <Country>Молдавия</Country>
         <FullName>Персик заморский</FullName>
+        <Description>Персик — растение из подрода Миндаль рода Слива семейства Розовые.</Description>
         <Price>30</Price>
         <Image>/Resources/peach.png</Image>
       </Product>
       <Product>
         <Name>Лимон</Name>
+        <Country>Мексика</Country>
         <FullName>Лимон кислый</FullName>
         <Price>20</Price>
         <Image>/Resources/lemon.png</Image>
@@ -31,6 +38,7 @@
       <Product>
         <Name>Банан</Name>
         <FullName>Банан вкусный</FullName>
+        <Country>Эквадор</Country>
         <Price>15</Price>
         <Image>/Resources/banana.png</Image>
       </Product>
@@ -42,30 +50,36 @@
     <Products>
       <Product>
         <Name>Огурец</Name>
+        <Country>Беларусь</Country>
         <FullName>Огурец столичный</FullName>
         <Price>8</Price>
         <Image>/Resources/cucumber.png</Image>
       </Product>
       <Product>
         <Name>Морковь</Name>
+		    <Description>Морковь посевная — двулетнее растение, овощная культура, подвид вида морковь дикая. Обычно в быту под словом «морковь» подразумевается широко распространённый корнеплод именно этого растения, который обычно относят к овощам.</Description>
+        <Country>Беларусь</Country>
         <FullName>Морква деревенска</FullName>
         <Price>8</Price>
         <Image>/Resources/carrot.png</Image>
       </Product>
       <Product>
         <Name>Тыква</Name>
+        <Country>Украина</Country>
         <FullName>Тыква из хэллоуина</FullName>
         <Price>45</Price>
         <Image>/Resources/pumpkins.png</Image>
       </Product>
       <Product>
         <Name>Лук</Name>
+        <Country>Украина</Country>
         <FullName>Лук зеленый</FullName>
         <Price>20</Price>
         <Image>/Resources/onion.png</Image>
       </Product>
       <Product>
         <Name>Капуста</Name>
+        <Country>Россия</Country>
         <FullName>Капуста земная</FullName>
         <Price>20</Price>
         <Image>/Resources/cabbage.png</Image>
@@ -78,18 +92,22 @@
     <Products>
       <Product>
         <Name>Виноград</Name>
+        <Country>Италия</Country>
         <FullName>Виноград кислый</FullName>
+        <Description>Виноград — плоды винограда культурного и некоторых других растений рода Виноград, в зрелом виде представляющие собой сладкие ягоды.</Description>
         <Price>10</Price>
         <Image>/Resources/grapes.png</Image>
       </Product>
       <Product>
         <Name>Черника</Name>
+        <Country>Россия</Country>
         <FullName>Черника ночная</FullName>
         <Price>20</Price>
         <Image>/Resources/blueberry.png</Image>
       </Product>
       <Product>
         <Name>Вишня</Name>
+        <Country>Германия</Country>
         <FullName>Вишня синяя</FullName>
         <Price>20</Price>
         <Image>/Resources/cherry.png</Image>

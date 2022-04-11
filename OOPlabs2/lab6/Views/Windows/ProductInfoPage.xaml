@@ -32,6 +32,7 @@
                     <StackPanel>
                     <TextBlock Text="{Binding SelectedProduct.Name}" Margin="0,4,0,0" FontSize="20"></TextBlock>
                     <TextBlock Text="{Binding SelectedProduct.FullName}" Margin="0"></TextBlock>
+                    <TextBlock Text="{Binding SelectedProduct.Country}" Margin="0"></TextBlock>
                     <TextBlock Text="{Binding SelectedProduct.Price, StringFormat=Цена {0}}" Margin="0,12" FontSize="24"></TextBlock>
                         <Button Width="60" HorizontalAlignment="Left" Command="{Binding AddToShoppingCart}">
                             <TextBlock Text="Купить"></TextBlock>
@@ -40,7 +41,7 @@
                 </Border>
             </StackPanel>
             <Line Stroke="#FF64BBD8" StrokeThickness="1" X1="0" X2="480" Y1="0" Y2="0"></Line>
-            <TextBlock Text="{Binding SelectedProduct.FullName}" Margin="20"></TextBlock>
+            <TextBlock Text="{Binding SelectedProduct.Description}" Margin="20" Width="440" HorizontalAlignment="Left" TextWrapping="Wrap"></TextBlock>
         </StackPanel>
         <Border BorderThickness="1" BorderBrush="LightBlue" Background="#FFDBF0F7" CornerRadius="15" DockPanel.Dock="Right" Width="200" HorizontalAlignment="Right" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <StackPanel>
