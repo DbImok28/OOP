@@ -7,7 +7,7 @@
         xmlns:vm="clr-namespace:lab6.ViewModules"
         xmlns:local="clr-namespace:lab6"
         mc:Ignorable="d"
-        Title="{Binding Title}" Height="518.562" Width="845" MinWidth="420" MinHeight="300" Icon="/Resources/corn.png">
+        Title="{DynamicResource LS_Title}" Height="518.562" Width="845" MinWidth="420" MinHeight="300" Icon="/Resources/corn.png">
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
@@ -138,6 +138,6 @@
                     </ListBox>
                 </DataTemplate>
             </TabControl.ContentTemplate>
-        </TabControl>-->
+        </TabControl>-->       
     </DockPanel>
 </Window>

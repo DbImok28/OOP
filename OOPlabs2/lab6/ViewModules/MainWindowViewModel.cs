@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,14 +21,6 @@ namespace lab6.ViewModules
         {
             get => _Title;
             set => Set(ref _Title, value);
-        }
-        #endregion
-        #region Status
-        private string _Status = "Фрукты";
-        public string Status
-        {
-            get => _Status;
-            set => Set(ref _Status, value);
         }
         #endregion
         #region ShopSections
@@ -52,6 +45,14 @@ namespace lab6.ViewModules
         {
             get => _SelectedShopSection;
             set => Set(ref _SelectedShopSection, value);
+        }
+        #endregion
+        #region CurrentLanguage
+        private string _CurrentLanguage;
+        public string CurrentLanguage
+        {
+            get => _CurrentLanguage;
+            set => Set(ref _CurrentLanguage, value);
         }
         #endregion
         #region Commands
@@ -97,6 +98,22 @@ namespace lab6.ViewModules
         }
         private bool CanRemoveProductFromShoppingCartCommandExecute(object par) => ShopingCart.Count > 0;
         #endregion
+        #region ChangeLanguage
+        public ICommand ChangeLanguageCommand { get; }
+        private void OnChangeLanguageCommandExecuted(object par)
+        {
+            //App.ChangeLanguage(par as string);
+            if(App.CurrentLanguage == "ru")
+            {
+                App.ChangeLanguage("en");
+            }
+            else
+            {
+                App.ChangeLanguage("ru");
+            }
+        }
+        private bool CanChangeLanguageCommandExecute(object par) => true;
+        #endregion
         #endregion
         #region FullPrice
         public decimal FullPrice => ShopingCart.Sum(x => x.Price);
@@ -131,8 +148,10 @@ namespace lab6.ViewModules
             CloseApplicationCommand = new Infrastructure.Commands.LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
             OpenCompliteShoppingPageCommand = new Infrastructure.Commands.LambdaCommand(OnOpenCompliteShoppingPageCommandExecuted, CanOpenCompliteShoppingPageCommandExecute);
             RemoveProductFromShoppingCartCommand = new Infrastructure.Commands.LambdaCommand(OnRemoveProductFromShoppingCartCommandExecuted, CanRemoveProductFromShoppingCartCommandExecute);
+            ChangeLanguageCommand = new Infrastructure.Commands.LambdaCommand(OnChangeLanguageCommandExecuted, CanChangeLanguageCommandExecute);
             #endregion
-            ShopSections = FileReader.DeserializeXML<ObservableCollection<ShopSection>>("Products.xml");
+            App.UpdateLanguage += (o,e)=> ShopSections = FileReader.DeserializeXML<ObservableCollection<ShopSection>>($"Products_{App.CurrentLanguage}.xml");
+            ShopSections = FileReader.DeserializeXML<ObservableCollection<ShopSection>>($"Products_{App.CurrentLanguage}.xml");
             SelectedShopSection = ShopSections[0];
             productInfoPage = new ProductInfoPage(this, RemoveProductFromShoppingCartCommand);
             compliteShopingPage = new CompliteShopingPage(this, RemoveProductFromShoppingCartCommand);

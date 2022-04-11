@@ -45,12 +45,20 @@
             <DockPanel DockPanel.Dock="Right">
                 <Border Margin="8" BorderThickness="1" BorderBrush="LightBlue" Background="#FFA5E7FD" CornerRadius="15" DockPanel.Dock="Top">
                     <StackPanel>
-                        <TextBlock Margin="20,15" Text="{Binding ShopingCart.Count, StringFormat=Количество товара {0}}" FontSize="24" HorizontalAlignment="Center"/>
-                        <TextBlock Margin="20,15" Text="{Binding FullPrice, StringFormat=Общая цена {0}}" FontSize="24" HorizontalAlignment="Center"/>
+                        <!--<TextBlock Margin="20,15" Text="{Binding ShopingCart.Count, StringFormat=Количество товара {0}}" FontSize="24" HorizontalAlignment="Center"/>
+                        <TextBlock Margin="20,15" Text="{Binding FullPrice, StringFormat=Общая цена {0}}" FontSize="24" HorizontalAlignment="Center"/>-->
+                        <StackPanel Orientation="Horizontal" Margin="20,15" HorizontalAlignment="Center">
+                            <TextBlock Margin="0,0,4,0" Text="{DynamicResource LS_ProductsCount}" FontSize="24"/>
+                            <TextBlock Text="{Binding ShopingCart.Count}" FontSize="24"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="20,15" HorizontalAlignment="Center">
+                            <TextBlock Margin="0,0,4,0" Text="{DynamicResource LS_ProductsPrice}" FontSize="24"/>
+                            <TextBlock Text="{Binding FullPrice}" FontSize="24"/>
+                        </StackPanel>
                     </StackPanel>
                 </Border>
                 <Button Margin="10,5" Height="50" VerticalAlignment="Bottom" DockPanel.Dock="Bottom">
-                    <TextBlock Text="Купить"/>
+                    <TextBlock Text="{DynamicResource LS_Buy}"/>
                 </Button>
             </DockPanel>
         </DockPanel>

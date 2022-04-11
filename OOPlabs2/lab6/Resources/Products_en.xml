@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfShopSection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ShopSection>
+    <Name>Fruits</Name>
+    <Icon>/Resources/fruits.png</Icon>
+    <Products>
+      <Product>
+        <Name>Apple</Name>
+        <FullName>Apple Friendship</FullName>
+		<Description>An apple is a succulent fruit of the apple tree that is eaten fresh, baked, and used as a raw material in cooking and beverages.</Description>
+		<Country>Russia</Country>
+        <Price>15</Price>
+        <Image>/Resources/apple.png</Image>
+      </Product>
+      <Product>
+        <Name>Pear</Name>
+        <FullName>Heroic pear</FullName>
+        <Description>Pear is a genus of fruit and ornamental trees and shrubs of the Rosaceae family.</Description>
+        <Country>Russia</Country>
+        <Price>20</Price>
+        <Image>/Resources/pear.png</Image>
+      </Product>
+      <Product>
+        <Name>Peach</Name>
+        <Country>Moldova</Country>
+        <FullName>Peach overseas</FullName>
+        <Description>Peach is a plant of the Almond subgenus of the Plum genus of the Rosaceae family.</Description>
+        <Price>30</Price>
+        <Image>/Resources/peach.png</Image>
+      </Product>
+      <Product>
+        <Name>Lemon</Name>
+        <Country>Mexico</Country>
+        <FullName>Sour Lemon</FullName>
+        <Price>20</Price>
+        <Image>/Resources/lemon.png</Image>
+      </Product>
+      <Product>
+        <Name>Banana</Name>
+        <FullName>Delicious banana</FullName>
+        <Country>Ecuador</Country>
+        <Price>15</Price>
+        <Image>/Resources/banana.png</Image>
+      </Product>
+    </Products>
+  </ShopSection>
+  <ShopSection>
+    <Name>Vegetables</Name>
+    <Icon>/Resources/vegetables.png</Icon>
+    <Products>
+      <Product>
+        <Name>Cucumber</Name>
+        <Country>Belarus</Country>
+        <FullName>Cucumber Capital</FullName>
+        <Price>8</Price>
+        <Image>/Resources/cucumber.png</Image>
+      </Product>
+      <Product>
+        <Name>Carrot</Name>
+		<Description>Carrot is a biennial plant, a vegetable crop, a subspecies of the wild carrot species. Usually in everyday life, the word "carrot" means the widespread root crop of this particular plant, which is usually referred to as a vegetable.</Description>
+        <Country>Belarus</Country>
+        <FullName>Rustic Carrot</FullName>
+        <Price>8</Price>
+        <Image>/Resources/carrot.png</Image>
+      </Product>
+      <Product>
+        <Name>Pumpkin</Name>
+        <Country>Ukraine</Country>
+        <FullName>Halloween Pumpkin</FullName>
+        <Price>45</Price>
+        <Image>/Resources/pumpkins.png</Image>
+      </Product>
+      <Product>
+        <Name>Bow</Name>
+        <Country>Ukraine</Country>
+        <FullName>Green onion</FullName>
+        <Price>20</Price>
+        <Image>/Resources/onion.png</Image>
+      </Product>
+      <Product>
+        <Name>Cabbage</Name>
+        <Country>Russia</Country>
+        <FullName>Ground cabbage</FullName>
+        <Price>20</Price>
+        <Image>/Resources/cabbage.png</Image>
+      </Product>
+    </Products>
+  </ShopSection>
+  <ShopSection>
+    <Name>Berries</Name>
+    <Icon>/Resources/berries.png</Icon>
+    <Products>
+      <Product>
+        <Name>Grapes</Name>
+        <Country>Italy</Country>
+        <FullName>Sour grapes</FullName>
+        <Description>Grapes are the fruits of cultivated grapes and some other plants of the genus Grape, which, when ripe, are sweet berries.</Description>
+        <Price>10</Price>
+        <Image>/Resources/grapes.png</Image>
+      </Product>
+      <Product>
+        <Name>Blueberries</Name>
+        <Country>Russia</Country>
+        <FullName>Night Blueberry</FullName>
+        <Price>20</Price>
+        <Image>/Resources/blueberry.png</Image>
+      </Product>
+      <Product>
+        <Name>Cherry</Name>
+        <Country>Germany</Country>
+        <FullName>Blue Cherry</FullName>
+        <Price>20</Price>
+        <Image>/Resources/cherry.png</Image>
+      </Product>
+    </Products>
+  </ShopSection>
+</ArrayOfShopSection>

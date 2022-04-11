@@ -27,6 +27,8 @@ namespace lab6.Views.Windows
             InitializeComponent();
             DataContext = baseVM;
             RemoveProduct = removeProduct;
+            Resources.MergedDictionaries.Add(App.CurrentLanguageDictionary);
+            App.UpdateLanguage += (o, e) => Resources.MergedDictionaries.Add(e);
         }
 
         public ICommand RemoveProduct { get; }

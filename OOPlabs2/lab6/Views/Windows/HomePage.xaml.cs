@@ -29,7 +29,10 @@ namespace lab6.Views.Windows
             DataContext = baseVM;
             ShowSelectProduct = showSelectProduct;
             RemoveProduct = removeProduct;
+            Resources.MergedDictionaries.Add(App.CurrentLanguageDictionary);
+            App.UpdateLanguage += (o, e) => Resources.MergedDictionaries.Add(e);
         }
+
         private readonly ICommand ShowSelectProduct;
         private readonly ICommand RemoveProduct;
 

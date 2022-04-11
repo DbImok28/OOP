@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="LS_Buy">Buy</sys:String>
+    <sys:String x:Key="LS_Price">Price</sys:String>
+    <sys:String x:Key="LS_ProductFilePath">Products_EN.xml</sys:String>
+    <sys:String x:Key="LS_ProductsCount">Number of products</sys:String>
+    <sys:String x:Key="LS_ProductsPrice">Total price</sys:String>
+    <sys:String x:Key="LS_Title">Shop</sys:String>
+</ResourceDictionary>

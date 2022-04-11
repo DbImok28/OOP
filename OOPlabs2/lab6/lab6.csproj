@@ -74,6 +74,14 @@
     <Compile Include="Views\Windows\ProductInfoPage.xaml.cs">
       <DependentUpon>ProductInfoPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="Resources\TextLocalization.ru.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\TextLocalization.en.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Windows\CompliteShoppingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -180,9 +188,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\onion.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Products.xml" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\corn_cur.png" />

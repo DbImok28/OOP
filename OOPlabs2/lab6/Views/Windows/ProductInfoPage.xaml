@@ -10,7 +10,13 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ProductInfoPage">
-
+    <Page.Resources>
+        <!--<ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="{Binding CurrentLanguageDictionary}"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>-->
+    </Page.Resources>
     <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="40"/>
@@ -30,12 +36,17 @@
                 </Border>
                 <Border Background="#FFE5F7FD" Padding="20" Width="250" Margin="2,20" BorderThickness="1" BorderBrush="Gray" CornerRadius="15">
                     <StackPanel>
-                    <TextBlock Text="{Binding SelectedProduct.Name}" Margin="0,4,0,0" FontSize="20"></TextBlock>
-                    <TextBlock Text="{Binding SelectedProduct.FullName}" Margin="0"></TextBlock>
-                    <TextBlock Text="{Binding SelectedProduct.Country}" Margin="0"></TextBlock>
-                    <TextBlock Text="{Binding SelectedProduct.Price, StringFormat=Цена {0}}" Margin="0,12" FontSize="24"></TextBlock>
+                        <TextBlock Text="{Binding SelectedProduct.Name}" Margin="0,4,0,0" FontSize="20"></TextBlock>
+                        <TextBlock Text="{Binding SelectedProduct.FullName}" Margin="0"></TextBlock>
+                        <TextBlock Text="{Binding SelectedProduct.Country}" Margin="0"></TextBlock>
+                        <!--<TextBlock Text="{Binding SelectedProduct.Price, StringFormat=Цена {0}}" Margin="0,12" FontSize="24"></TextBlock>-->
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{DynamicResource LS_Price}" Margin="0,12" FontSize="24"></TextBlock>
+                            <TextBlock Text=" " Margin="0,12" FontSize="24"></TextBlock>
+                            <TextBlock Text="{Binding SelectedProduct.Price}" Margin="0,12" FontSize="24"></TextBlock>
+                        </StackPanel>
                         <Button Width="60" HorizontalAlignment="Left" Command="{Binding AddToShoppingCart}">
-                            <TextBlock Text="Купить"></TextBlock>
+                            <TextBlock Text="{DynamicResource LS_Buy}"></TextBlock>
                         </Button>
                     </StackPanel>
                 </Border>
@@ -51,7 +62,7 @@
                             <Button Command="{Binding OpenCompliteShoppingPageCommand}" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="8" DockPanel.Dock="Right" Padding="0">
                                 <fa:FontAwesome Icon="ShoppingCart" FontSize="32"/>
                             </Button>
-                            <TextBlock TextWrapping="Wrap" Text="{Binding Status}" Margin="5" VerticalAlignment="Center" DockPanel.Dock="Left"/>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding SelectedShopSection.Name}" Margin="5" VerticalAlignment="Center" DockPanel.Dock="Left"/>
                 </DockPanel>
             </Border>
                     <ListBox MouseDoubleClick="ListBox_RemoveProduct" ItemsSource="{Binding ShopingCart}" Background="{x:Null}" BorderThickness="0" Padding="0">
@@ -60,7 +71,9 @@
                                 <StackPanel Orientation="Horizontal">
                                     <Image Source="{Binding Image}" Margin="2,0" Width="20" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left"/>
                                     <TextBlock Text="{Binding Name}" Margin="2,0"  VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding Price, StringFormat=Цена {0}}" Margin="2,0" VerticalAlignment="Center"/>
+                                    <!--<TextBlock Text="{Binding Price, StringFormat=Цена {0}}" Margin="2,0" VerticalAlignment="Center"/>-->
+                                    <TextBlock Text="{DynamicResource LS_Price}" Margin="2,0"  VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding Price}" Margin="2,0" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
