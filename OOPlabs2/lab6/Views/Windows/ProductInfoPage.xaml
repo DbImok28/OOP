@@ -40,10 +40,10 @@
                         <TextBlock Text="{Binding SelectedProduct.FullName}" Margin="0"></TextBlock>
                         <TextBlock Text="{Binding SelectedProduct.Country}" Margin="0"></TextBlock>
                         <!--<TextBlock Text="{Binding SelectedProduct.Price, StringFormat=Цена {0}}" Margin="0,12" FontSize="24"></TextBlock>-->
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{DynamicResource LS_Price}" Margin="0,12" FontSize="24"></TextBlock>
-                            <TextBlock Text=" " Margin="0,12" FontSize="24"></TextBlock>
-                            <TextBlock Text="{Binding SelectedProduct.Price}" Margin="0,12" FontSize="24"></TextBlock>
+                        <StackPanel Orientation="Horizontal" Margin="0,4">
+                            <TextBlock Text="{DynamicResource LS_Price}" FontSize="24"></TextBlock>
+                            <TextBlock Text=" "  FontSize="24"></TextBlock>
+                            <TextBlock Text="{Binding SelectedProduct.Price}" FontSize="24"></TextBlock>
                         </StackPanel>
                         <Button Width="60" HorizontalAlignment="Left" Command="{Binding AddToShoppingCart}">
                             <TextBlock Text="{DynamicResource LS_Buy}"></TextBlock>

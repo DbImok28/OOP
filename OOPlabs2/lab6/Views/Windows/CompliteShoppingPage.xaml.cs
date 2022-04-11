@@ -37,5 +37,10 @@ namespace lab6.Views.Windows
             var product = (sender as ListBox).SelectedItem as Product;
             RemoveProduct.Execute(product);
         }
+
+        private void ButtonEndShoping_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Спасибо за покупку", "Спасибо");
+        }
     }
 }
