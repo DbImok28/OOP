@@ -53,7 +53,7 @@
                             <TextBlock TextWrapping="Wrap" Text="{Binding Status}" Margin="5" VerticalAlignment="Center" DockPanel.Dock="Left"/>
                 </DockPanel>
             </Border>
-                    <ListBox ItemsSource="{Binding ShopingCart}" Background="{x:Null}" BorderThickness="0" Padding="0">
+                    <ListBox MouseDoubleClick="ListBox_RemoveProduct" ItemsSource="{Binding ShopingCart}" Background="{x:Null}" BorderThickness="0" Padding="0">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">

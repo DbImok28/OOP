@@ -25,7 +25,7 @@
         </Button>
         <DockPanel Grid.Column="1" Grid.Row="1">
             <Border Margin="8" BorderThickness="1" BorderBrush="LightBlue" Background="#FFDBF0F7" CornerRadius="30" DockPanel.Dock="Left">
-                <ListBox Width="200" ItemsSource="{Binding ShopingCart}" Background="{x:Null}">
+                <ListBox MouseDoubleClick="ListBox_RemoveProduct" Width="200" ItemsSource="{Binding ShopingCart}" Background="{x:Null}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">

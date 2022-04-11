@@ -88,8 +88,20 @@ namespace lab6.ViewModules
         private void OnOpenCompliteShoppingPageCommandExecuted(object par) => CurrentPage = compliteShopingPage;
         private bool CanOpenCompliteShoppingPageCommandExecute(object par) => true;
         #endregion
+        #region RemoveProductCommand
+        public ICommand RemoveProductFromShoppingCartCommand { get; }
+        private void OnRemoveProductFromShoppingCartCommandExecuted(object par)
+        {
+            ShopingCart.Remove(par as Product);
+            OnPropertyChanged(nameof(FullPrice));
+        }
+        private bool CanRemoveProductFromShoppingCartCommandExecute(object par) => ShopingCart.Count > 0;
         #endregion
+        #endregion
+        #region FullPrice
         public decimal FullPrice => ShopingCart.Sum(x => x.Price);
+        #endregion
+        #region Pages
         private HomePage homePage;
         private ProductInfoPage productInfoPage;
         private CompliteShopingPage compliteShopingPage;
@@ -100,6 +112,7 @@ namespace lab6.ViewModules
             get => _CurrentPage;
             set => Set(ref _CurrentPage, value);
         }
+        #endregion
         #endregion
         #region SelectedProduct
         private Product _SelectedProduct;
@@ -117,12 +130,13 @@ namespace lab6.ViewModules
             OpenHomePageCommand = new Infrastructure.Commands.LambdaCommand(OnOpenHomePageCommandExecuted, CanOpenHomePageCommandExecute);
             CloseApplicationCommand = new Infrastructure.Commands.LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
             OpenCompliteShoppingPageCommand = new Infrastructure.Commands.LambdaCommand(OnOpenCompliteShoppingPageCommandExecuted, CanOpenCompliteShoppingPageCommandExecute);
+            RemoveProductFromShoppingCartCommand = new Infrastructure.Commands.LambdaCommand(OnRemoveProductFromShoppingCartCommandExecuted, CanRemoveProductFromShoppingCartCommandExecute);
             #endregion
             ShopSections = FileReader.DeserializeXML<ObservableCollection<ShopSection>>("Products.xml");
             SelectedShopSection = ShopSections[0];
-            productInfoPage = new ProductInfoPage(this);
-            compliteShopingPage = new CompliteShopingPage(this);
-            homePage = new HomePage(this, OpenProductPageCommand);
+            productInfoPage = new ProductInfoPage(this, RemoveProductFromShoppingCartCommand);
+            compliteShopingPage = new CompliteShopingPage(this, RemoveProductFromShoppingCartCommand);
+            homePage = new HomePage(this, OpenProductPageCommand, RemoveProductFromShoppingCartCommand);
             CurrentPage = homePage;
         }
     }

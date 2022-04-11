@@ -23,17 +23,20 @@ namespace lab6.Views.Windows
     /// </summary>
     public partial class HomePage : Page
     {
-        public HomePage(INotifyPropertyChanged baseVM, ICommand showSelectProduct)
+        public HomePage(INotifyPropertyChanged baseVM, ICommand showSelectProduct, ICommand removeProduct)
         {
             InitializeComponent();
             DataContext = baseVM;
-            this.showSelectProduct = showSelectProduct;
+            ShowSelectProduct = showSelectProduct;
+            RemoveProduct = removeProduct;
         }
-        private readonly ICommand showSelectProduct;
+        private readonly ICommand ShowSelectProduct;
+        private readonly ICommand RemoveProduct;
+
         private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var product = (sender as ListBox).SelectedItem as Product;
-            showSelectProduct.Execute(product);
+            ShowSelectProduct.Execute(product);
         }
 
         private void CollectionViewSource_Filter(object sender, FilterEventArgs e)
@@ -50,6 +53,11 @@ namespace lab6.Views.Windows
             var box = sender as TextBox;
             var collection = box.FindResource("ProductsGroups") as CollectionViewSource;
             collection.View.Refresh();
+        }
+        private void ListBox_RemoveProduct(object sender, MouseButtonEventArgs e)
+        {
+            var product = (sender as ListBox).SelectedItem as Product;
+            RemoveProduct.Execute(product);
         }
     }
 }

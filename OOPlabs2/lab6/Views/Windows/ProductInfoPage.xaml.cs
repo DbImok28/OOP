@@ -1,4 +1,5 @@
-﻿using System;
+﻿using lab6.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -21,10 +22,18 @@ namespace lab6.Views.Windows
     /// </summary>
     public partial class ProductInfoPage : Page
     {
-        public ProductInfoPage(INotifyPropertyChanged baseVM)
+        public ProductInfoPage(INotifyPropertyChanged baseVM, ICommand removeProduct)
         {
             InitializeComponent();
             DataContext = baseVM;
+            RemoveProduct = removeProduct;
+        }
+
+        public ICommand RemoveProduct { get; }
+        private void ListBox_RemoveProduct(object sender, MouseButtonEventArgs e)
+        {
+            var product = (sender as ListBox).SelectedItem as Product;
+            RemoveProduct.Execute(product);
         }
     }
 }

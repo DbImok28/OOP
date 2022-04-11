@@ -98,7 +98,7 @@
                         <TextBox x:Name="FilterBox" Margin="8,4,0,4" VerticalAlignment="Center" TextChanged="FilterBox_TextChanged" />
                     </DockPanel>
                 </Border>
-                <ListBox ItemsSource="{Binding ShopingCart}" Background="{x:Null}" BorderThickness="0" Padding="0">
+                <ListBox MouseDoubleClick="ListBox_RemoveProduct" ItemsSource="{Binding ShopingCart}" Background="{x:Null}" BorderThickness="0" Padding="0">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
