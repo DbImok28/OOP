@@ -41,13 +41,15 @@ namespace lab6.Views.Windows
             var product = (sender as ListBox).SelectedItem as Product;
             ShowSelectProduct.Execute(product);
         }
-
+        public static bool Contains(string source, string toCheck, StringComparison comp)
+        {
+            return source != null && toCheck != null && source.IndexOf(toCheck, comp) >= 0;
+        }
         private void CollectionViewSource_Filter(object sender, FilterEventArgs e)
         {
             if (!(e.Item is Product product) || product is null) return;
             var filterText = FilterBox.Text;
-            //if (product.Name.Contains(filterText, StringComparison.OrdinalIgnoreCase)) return;
-            if (product.Name.Contains(filterText)) return;
+            if (Contains(product.Name, filterText, StringComparison.OrdinalIgnoreCase)) return;
             e.Accepted = false;
         }
 
