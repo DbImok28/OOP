@@ -12,7 +12,6 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="HomePage">
     <Page.Resources>
-        
         <SolidColorBrush x:Key="TabItem.Selected.Background" Color="#FFFFFF"/>
         <SolidColorBrush x:Key="TabItem.Selected.Border" Color="#ACACAC"/>
         <Style x:Key="MyTabControlStyle" TargetType="{x:Type TabControl}">
@@ -91,7 +90,7 @@
                             <Button Padding="0" Background="{x:Null}" BorderThickness="0" Command="{Binding ChangeLanguageCommand}">
                                 <fa:FontAwesome Icon="Language" FontSize="32"/>
                             </Button>
-                            <Button Command="{Binding OpenCompliteShoppingPageCommand}" Padding="0"  Background="{x:Null}" BorderThickness="0">
+                            <Button Command="{Binding OpenCompliteShoppingPageCommand}" Padding="0" Background="{x:Null}" BorderThickness="0">
                                 <fa:FontAwesome Icon="ShoppingCart" FontSize="32"/>
                             </Button>
                         </StackPanel>
@@ -100,8 +99,34 @@
                 </Border>
                 <Border CornerRadius="10" Background="#FFC7EDF9" BorderBrush="LightBlue" BorderThickness="1">
                     <DockPanel Height="40">
-                        <fa:FontAwesome Icon="Search" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="8" DockPanel.Dock="Right"/>
-                        <TextBox x:Name="FilterBox" Margin="8,4,0,4" VerticalAlignment="Center" TextChanged="FilterBox_TextChanged" />
+                        <CheckBox Name="showSearch" Width="20" Height="20" Margin="1,8" HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Left" IsChecked="True"/>
+                        <Button Name="moveFilterBox" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="8" DockPanel.Dock="Right" Background="{x:Null}" BorderThickness="0">
+                            <fa:FontAwesome Icon="Search" FontSize="20"/>
+                            <Button.Triggers>
+                                <EventTrigger RoutedEvent="Button.Click">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Width" Storyboard.TargetName="FilterBox" Duration="0:0:2">
+                                                <LinearDoubleKeyFrame Value="140" KeyTime="0:0:0"/>
+                                                <LinearDoubleKeyFrame Value="0" KeyTime="0:0:1"/>
+                                                <LinearDoubleKeyFrame Value="140" KeyTime="0:0:2"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Button.Triggers>
+                        </Button>
+                        <TextBox Name="FilterBox" Margin="8,4,0,4" VerticalAlignment="Center" TextChanged="FilterBox_TextChanged">
+                            <TextBox.Style>
+                                <Style TargetType="TextBox">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=showSearch, Path=IsChecked}" Value="False">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBox.Style>
+                        </TextBox>
                     </DockPanel>
                 </Border>
                 <ListBox MouseDoubleClick="ListBox_RemoveProduct" ItemsSource="{Binding ShopingCart}" Background="{x:Null}" BorderThickness="0" Padding="0">
@@ -144,6 +169,15 @@
                                     <Trigger Property="IsSelected" Value="False">
                                         <Setter TargetName="Border" Property="Background" Value="GhostWhite" />
                                     </Trigger>
+                                    <MultiTrigger>
+                                        <MultiTrigger.Conditions>
+                                            <Condition Property="IsSelected" Value="True"/>
+                                            <Condition Property="IsMouseOver" Value="True"/>
+                                        </MultiTrigger.Conditions>
+                                        <MultiTrigger.Setters>
+                                            <Setter TargetName="Border" Property="Background" Value="LightGray"/>
+                                        </MultiTrigger.Setters>
+                                    </MultiTrigger>
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
                         </Setter.Value>
