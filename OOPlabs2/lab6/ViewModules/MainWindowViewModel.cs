@@ -32,8 +32,8 @@ namespace lab6.ViewModules
         }
         #endregion
         #region ShopingCart
-        private ObservableCollection<Product> _ShopingCart = new ObservableCollection<Product>();
-        public ObservableCollection<Product> ShopingCart
+        private HistoryCollection<Product> _ShopingCart;
+        public HistoryCollection<Product> ShopingCart
         {
             get => _ShopingCart;
             set => Set(ref _ShopingCart, value);
@@ -135,6 +135,16 @@ namespace lab6.ViewModules
         private void OnClearCartCommandExecuted(object par) => ShopingCart.Clear();
         private bool CanClearCartCommandExecute(object par) => true;
         #endregion
+        #region Undo
+        public ICommand UndoCommand { get; }
+        private void OnUndoCommandExecuted(object par) => ShopingCart.Undo();
+        private bool CanUndoCommandExecute(object par) => ShopingCart.UndoHistory.Count > 0;
+        #endregion
+        #region Redo
+        public ICommand RedoCommand { get; }
+        private void OnRedoCommandExecuted(object par) => ShopingCart.Redo();
+        private bool CanRedoCommandExecute(object par) => ShopingCart.RedoHistory.Count > 0;
+        #endregion
         #endregion
         #region FullPrice
         public decimal FullPrice => ShopingCart.Sum(x => x.Price);
@@ -172,7 +182,9 @@ namespace lab6.ViewModules
             ChangeLanguageCommand = new Infrastructure.Commands.LambdaCommand(OnChangeLanguageCommandExecuted, CanChangeLanguageCommandExecute);
             ChangeThemeCommand = new Infrastructure.Commands.LambdaCommand(OnChangeThemeCommandExecuted, CanChangeThemeCommandExecute);
             ClearCartCommand = new Infrastructure.Commands.LambdaCommand(OnClearCartCommandExecuted, CanClearCartCommandExecute);
-            #endregion
+            UndoCommand = new Infrastructure.Commands.LambdaCommand(OnUndoCommandExecuted, CanUndoCommandExecute);
+            RedoCommand = new Infrastructure.Commands.LambdaCommand(OnRedoCommandExecuted, CanRedoCommandExecute);
+            #endregion 
             App.UpdateLanguage += (o,e)=> ShopSections = FileReader.DeserializeXML<ObservableCollection<ShopSection>>($"Products_{App.CurrentLanguage}.xml");
             ShopSections = FileReader.DeserializeXML<ObservableCollection<ShopSection>>($"Products_{App.CurrentLanguage}.xml");
             SelectedShopSection = ShopSections[0];
@@ -180,6 +192,9 @@ namespace lab6.ViewModules
             compliteShopingPage = new CompliteShopingPage(this, RemoveProductFromShoppingCartCommand, ClearCartCommand);
             homePage = new HomePage(this, OpenProductPageCommand, RemoveProductFromShoppingCartCommand);
             CurrentPage = homePage;
+
+            var observe = new ObservableCollection<Product>();
+            _ShopingCart = new HistoryCollection<Product>(observe);
         }
     }
 }

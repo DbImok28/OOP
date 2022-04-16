@@ -121,6 +121,16 @@
                     </DockPanel>
                 </Border>
                 <Border CornerRadius="10" Background="{DynamicResource ElementBackgroundColour}" BorderBrush="{DynamicResource ElementBorderColour}" BorderThickness="1">
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="8" DockPanel.Dock="Right" Orientation="Horizontal">
+                        <Button Width="20" Command="{Binding UndoCommand}">
+                            <fa:FontAwesome Icon="Undo"/>
+                        </Button>
+                        <Button Width="20" Command="{Binding RedoCommand}">
+                            <fa:FontAwesome Icon="Undo" FlipOrientation="Horizontal"/>
+                        </Button>
+                    </StackPanel>
+                </Border>
+                <Border CornerRadius="10" Background="{DynamicResource ElementBackgroundColour}" BorderBrush="{DynamicResource ElementBorderColour}" BorderThickness="1">
                     <DockPanel Height="40">
                         <CheckBox Name="showSearch" Width="20" Height="20" Margin="1,8" HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Left" IsChecked="True"/>
                         <Button Name="moveFilterBox" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="8" DockPanel.Dock="Right" Background="{x:Null}" BorderThickness="0">
