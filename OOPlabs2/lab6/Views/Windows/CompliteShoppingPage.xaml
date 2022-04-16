@@ -9,9 +9,9 @@
       d:DataContext="{d:DesignInstance Type=vm:MainWindowViewModel}"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="CompliteShopingPage">
+      Title="CompliteShopingPage" Background="{DynamicResource BackgroundWindowColour}">
 
-    <Grid Background="White">
+    <Grid Background="{DynamicResource BackgroundWindowColour}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="40"/>
             <ColumnDefinition Width="*"/>
@@ -24,7 +24,7 @@
             <fa:FontAwesome Icon="Backward"></fa:FontAwesome>
         </Button>
         <DockPanel Grid.Column="1" Grid.Row="1">
-            <Border Margin="8" BorderThickness="1" BorderBrush="LightBlue" Background="#FFDBF0F7" CornerRadius="15" DockPanel.Dock="Left">
+            <Border Margin="8" BorderThickness="1" BorderBrush="{DynamicResource BorderColour}" Background="{DynamicResource BackgroundColour}" CornerRadius="15" DockPanel.Dock="Left">
                 <ListBox MouseDoubleClick="ListBox_RemoveProduct" Width="200" ItemsSource="{Binding ShopingCart}" Background="{x:Null}" BorderThickness="0">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -43,7 +43,7 @@
             </ListBox>
             </Border>
             <DockPanel DockPanel.Dock="Right">
-                <Border Margin="8" BorderThickness="1" BorderBrush="LightBlue" Background="#FFA5E7FD" CornerRadius="15" DockPanel.Dock="Top">
+                <Border Margin="8" BorderThickness="1" BorderBrush="{DynamicResource ElementBorderColour}" Background="{DynamicResource ElementBackgroundColour}" CornerRadius="15" DockPanel.Dock="Top">
                     <StackPanel>
                         <!--<TextBlock Margin="20,15" Text="{Binding ShopingCart.Count, StringFormat=Количество товара {0}}" FontSize="24" HorizontalAlignment="Center"/>
                         <TextBlock Margin="20,15" Text="{Binding FullPrice, StringFormat=Общая цена {0}}" FontSize="24" HorizontalAlignment="Center"/>-->
@@ -57,7 +57,7 @@
                         </StackPanel>
                     </StackPanel>
                 </Border>
-                <Button Margin="10,5" Height="50" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Click="ButtonEndShoping_Click">
+                <Button Margin="10,5" Height="50" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Background="{DynamicResource ElementBackgroundColour}" Click="ButtonEndShoping_Click">
                     <TextBlock Text="{DynamicResource LS_Buy}"/>
                 </Button>
             </DockPanel>

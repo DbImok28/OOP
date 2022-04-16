@@ -114,6 +114,27 @@ namespace lab6.ViewModules
         }
         private bool CanChangeLanguageCommandExecute(object par) => true;
         #endregion
+        #region ChangeTheme
+        public ICommand ChangeThemeCommand { get; }
+        private void OnChangeThemeCommandExecuted(object par)
+        {
+            //App.ChangeLanguage(par as string);
+            if (App.CurrentTheme == App.Theme.Blue)
+            {
+                App.ChangeTheme(App.Theme.Gray);
+            }
+            else
+            {
+                App.ChangeTheme(App.Theme.Blue);
+            }
+        }
+        private bool CanChangeThemeCommandExecute(object par) => true;
+        #endregion
+        #region ClearCart
+        public ICommand ClearCartCommand { get; }
+        private void OnClearCartCommandExecuted(object par) => ShopingCart.Clear();
+        private bool CanClearCartCommandExecute(object par) => true;
+        #endregion
         #endregion
         #region FullPrice
         public decimal FullPrice => ShopingCart.Sum(x => x.Price);
@@ -149,12 +170,14 @@ namespace lab6.ViewModules
             OpenCompliteShoppingPageCommand = new Infrastructure.Commands.LambdaCommand(OnOpenCompliteShoppingPageCommandExecuted, CanOpenCompliteShoppingPageCommandExecute);
             RemoveProductFromShoppingCartCommand = new Infrastructure.Commands.LambdaCommand(OnRemoveProductFromShoppingCartCommandExecuted, CanRemoveProductFromShoppingCartCommandExecute);
             ChangeLanguageCommand = new Infrastructure.Commands.LambdaCommand(OnChangeLanguageCommandExecuted, CanChangeLanguageCommandExecute);
+            ChangeThemeCommand = new Infrastructure.Commands.LambdaCommand(OnChangeThemeCommandExecuted, CanChangeThemeCommandExecute);
+            ClearCartCommand = new Infrastructure.Commands.LambdaCommand(OnClearCartCommandExecuted, CanClearCartCommandExecute);
             #endregion
             App.UpdateLanguage += (o,e)=> ShopSections = FileReader.DeserializeXML<ObservableCollection<ShopSection>>($"Products_{App.CurrentLanguage}.xml");
             ShopSections = FileReader.DeserializeXML<ObservableCollection<ShopSection>>($"Products_{App.CurrentLanguage}.xml");
             SelectedShopSection = ShopSections[0];
             productInfoPage = new ProductInfoPage(this, RemoveProductFromShoppingCartCommand);
-            compliteShopingPage = new CompliteShopingPage(this, RemoveProductFromShoppingCartCommand);
+            compliteShopingPage = new CompliteShopingPage(this, RemoveProductFromShoppingCartCommand, ClearCartCommand);
             homePage = new HomePage(this, OpenProductPageCommand, RemoveProductFromShoppingCartCommand);
             CurrentPage = homePage;
         }

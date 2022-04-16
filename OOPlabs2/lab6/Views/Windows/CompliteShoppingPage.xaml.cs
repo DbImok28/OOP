@@ -22,16 +22,21 @@ namespace lab6.Views.Windows
     /// </summary>
     public partial class CompliteShopingPage : Page
     {
-        public CompliteShopingPage(INotifyPropertyChanged baseVM, ICommand removeProduct)
+        public CompliteShopingPage(INotifyPropertyChanged baseVM, ICommand removeProduct, ICommand clear)
         {
             InitializeComponent();
             DataContext = baseVM;
             RemoveProduct = removeProduct;
+            Clear = clear;
             Resources.MergedDictionaries.Add(App.CurrentLanguageDictionary);
             App.UpdateLanguage += (o, e) => Resources.MergedDictionaries.Add(e);
+            Resources.MergedDictionaries.Add(App.CurrentThemeDictionary);
+            App.UpdateTheme += (o, e) => Resources.MergedDictionaries.Add(e);
         }
 
         public ICommand RemoveProduct { get; }
+        public ICommand Clear { get; }
+
         private void ListBox_RemoveProduct(object sender, MouseButtonEventArgs e)
         {
             var product = (sender as ListBox).SelectedItem as Product;
@@ -40,6 +45,7 @@ namespace lab6.Views.Windows
 
         private void ButtonEndShoping_Click(object sender, RoutedEventArgs e)
         {
+            Clear.Execute(null);
             MessageBox.Show("Спасибо за покупку", "Спасибо");
         }
     }

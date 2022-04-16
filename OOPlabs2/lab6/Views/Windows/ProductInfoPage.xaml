@@ -9,7 +9,7 @@
       d:DataContext="{d:DesignInstance Type=vm:MainWindowViewModel}"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ProductInfoPage">
+      Title="ProductInfoPage" Background="{DynamicResource BackgroundWindowColour}">
     <Page.Resources>
         <!--<ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -17,7 +17,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>-->
     </Page.Resources>
-    <Grid Background="White">
+    <Grid Background="{DynamicResource BackgroundWindowColour}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="40"/>
             <ColumnDefinition Width="*"/>
@@ -26,15 +26,15 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button Command="{Binding OpenHomePageCommand}" Width="30" Height="30" Background="LightBlue">
+        <Button Command="{Binding OpenHomePageCommand}" Width="30" Height="30" Background="{DynamicResource BackgroundColour}">
             <fa:FontAwesome Icon="Backward"></fa:FontAwesome>
         </Button>
         <StackPanel Grid.Column="1" Grid.Row="1">
             <StackPanel Orientation="Horizontal">
-                <Border Background="LightBlue" Margin="20" BorderThickness="1" BorderBrush="Gray" CornerRadius="15">
+                <Border Background="{DynamicResource ElementBackgroundColour}" Margin="20" BorderThickness="1" BorderBrush="Gray" CornerRadius="15">
                     <Image Source="{Binding SelectedProduct.Image}" Width="150" Height="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2"></Image>
                 </Border>
-                <Border Background="#FFE5F7FD" Padding="20" Width="250" Margin="2,20" BorderThickness="1" BorderBrush="Gray" CornerRadius="15">
+                <Border Background="{DynamicResource BackgroundColour}" Padding="20" Width="250" Margin="2,20" BorderThickness="1" BorderBrush="Gray" CornerRadius="15">
                     <StackPanel>
                         <TextBlock Text="{Binding SelectedProduct.Name}" Margin="0,4,0,0" FontSize="20"></TextBlock>
                         <TextBlock Text="{Binding SelectedProduct.FullName}" Margin="0"></TextBlock>
@@ -51,39 +51,56 @@
                     </StackPanel>
                 </Border>
             </StackPanel>
-            <Line Stroke="#FF64BBD8" StrokeThickness="1" X1="0" X2="480" Y1="0" Y2="0"></Line>
+            <Line Stroke="{DynamicResource ElementBorderColour}" StrokeThickness="1" X1="0" X2="480" Y1="0" Y2="0"></Line>
             <TextBlock Text="{Binding SelectedProduct.Description}" Margin="20" Width="440" HorizontalAlignment="Left" TextWrapping="Wrap"></TextBlock>
         </StackPanel>
-        <Border BorderThickness="1" BorderBrush="LightBlue" Background="#FFDBF0F7" CornerRadius="15" DockPanel.Dock="Right" Width="200" HorizontalAlignment="Right" Grid.RowSpan="2" Grid.ColumnSpan="2">
+        <Border BorderThickness="1" BorderBrush="{DynamicResource ElementBorderColour}" Background="{DynamicResource BackgroundColour}" CornerRadius="15" DockPanel.Dock="Right" Width="200" HorizontalAlignment="Right" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <StackPanel>
-                <StackPanel>
-            <Border CornerRadius="10" Background="LightBlue" BorderBrush="Gray" BorderThickness="1">
-                <DockPanel Height="50">
-                            <Button Command="{Binding OpenCompliteShoppingPageCommand}" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="8" DockPanel.Dock="Right" Padding="0">
-                                <fa:FontAwesome Icon="ShoppingCart" FontSize="32"/>
-                            </Button>
+                <Border CornerRadius="10" Background="{DynamicResource ElementBackgroundColour}" BorderBrush="{DynamicResource BorderColour}" BorderThickness="1">
+                    <DockPanel Height="50">
+                            <DockPanel.Resources>
+                                <Style TargetType="Button">
+                                    <Setter Property="Padding" Value="0"/>
+                                    <Setter Property="Margin" Value="2,0"/>
+                                    <Setter Property="Background" Value="{x:Null}"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                </Style>
+                                <Style TargetType="fa:FontAwesome">
+                                    <Setter Property="FontSize" Value="32"/>
+                                </Style>
+                            </DockPanel.Resources>
+                            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="8" DockPanel.Dock="Right" Orientation="Horizontal">
+                                <Button Command="{Binding ChangeThemeCommand}">
+                                    <fa:FontAwesome Icon="Paperclip"/>
+                                </Button>
+                                <Button Command="{Binding ChangeLanguageCommand}">
+                                    <fa:FontAwesome Icon="Language"/>
+                                </Button>
+                                <Button Command="{Binding OpenCompliteShoppingPageCommand}">
+                                    <fa:FontAwesome Icon="ShoppingCart"/>
+                                </Button>
+                            </StackPanel>
                             <TextBlock TextWrapping="Wrap" Text="{Binding SelectedShopSection.Name}" Margin="5" VerticalAlignment="Center" DockPanel.Dock="Left"/>
                 </DockPanel>
             </Border>
-                    <ListBox MouseDoubleClick="ListBox_RemoveProduct" ItemsSource="{Binding ShopingCart}" Background="{x:Null}" BorderThickness="0" Padding="0">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Source="{Binding Image}" Margin="2,0" Width="20" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                                    <TextBlock Text="{Binding Name}" Margin="2,0"  VerticalAlignment="Center"/>
-                                    <!--<TextBlock Text="{Binding Price, StringFormat=Цена {0}}" Margin="2,0" VerticalAlignment="Center"/>-->
-                                    <TextBlock Text="{DynamicResource LS_Price}" Margin="2,0"  VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding Price}" Margin="2,0" VerticalAlignment="Center"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                        <ListBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel/>
-                            </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel>
-                    </ListBox>
-                </StackPanel>
+                <ListBox MouseDoubleClick="ListBox_RemoveProduct" ItemsSource="{Binding ShopingCart}" Background="{x:Null}" BorderThickness="0" Padding="0">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="{Binding Image}" Margin="2,0" Width="20" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                                <TextBlock Text="{Binding Name}" Margin="2,0"  VerticalAlignment="Center"/>
+                                <!--<TextBlock Text="{Binding Price, StringFormat=Цена {0}}" Margin="2,0" VerticalAlignment="Center"/>-->
+                                <TextBlock Text="{DynamicResource LS_Price}" Margin="2,0"  VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Price}" Margin="2,0" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
             </StackPanel>
         </Border>
     </Grid>

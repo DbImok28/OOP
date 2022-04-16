@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="BackgroundColour" Color="#FFDBF0F7" />
+    <SolidColorBrush x:Key="BorderColour" Color="LightBlue" />
+    <SolidColorBrush x:Key="ElementBackgroundColour" Color="#FF8DD5EE" />
+    <SolidColorBrush x:Key="ElementBorderColour" Color="#FFC8ECF7" />
+    <SolidColorBrush x:Key="TabSelectedItemColour" Color="LightSkyBlue" />
+    <SolidColorBrush x:Key="ListBoxBackgroundColour" Color="White"/>
+    <SolidColorBrush x:Key="BackgroundWindowColour" Color="White"/>
+</ResourceDictionary>

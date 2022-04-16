@@ -27,6 +27,8 @@ namespace lab6
             InitializeComponent();
             Resources.MergedDictionaries.Add(App.CurrentLanguageDictionary);
             App.UpdateLanguage += (o,e) => Resources.MergedDictionaries.Add(e);
+            Resources.MergedDictionaries.Add(App.CurrentThemeDictionary);
+            App.UpdateTheme += (o, e) => Resources.MergedDictionaries.Add(e);
         }
         
     }

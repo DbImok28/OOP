@@ -82,22 +82,36 @@
         <DockPanel.Resources>
             <CollectionViewSource x:Name="ProductsGroups" x:Key="ProductsGroups" Source="{Binding SelectedShopSection.Products}" Filter="CollectionViewSource_Filter"/>
         </DockPanel.Resources>
-        <Border BorderThickness="1" BorderBrush="LightBlue" Background="#FFDBF0F7" CornerRadius="15" DockPanel.Dock="Right" Width="200" HorizontalAlignment="Right" Grid.RowSpan="2" Grid.ColumnSpan="2">
+        <Border BorderThickness="1" BorderBrush="{DynamicResource ElementBorderColour}" Background="{DynamicResource BackgroundColour}" CornerRadius="15" DockPanel.Dock="Right" Width="200" HorizontalAlignment="Right" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <StackPanel>
-                <Border CornerRadius="10" Background="LightBlue" BorderBrush="Gray" BorderThickness="1">
+                <Border CornerRadius="10" Background="{DynamicResource ElementBackgroundColour}" BorderBrush="{DynamicResource BorderColour}" BorderThickness="1">
                     <DockPanel Height="50">
+                        <DockPanel.Resources>
+                            <Style TargetType="Button">
+                                <Setter Property="Padding" Value="0"/>
+                                <Setter Property="Margin" Value="2,0"/>
+                                <Setter Property="Background" Value="{x:Null}"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+                            </Style>
+                            <Style TargetType="fa:FontAwesome">
+                                <Setter Property="FontSize" Value="32"/>
+                            </Style>
+                        </DockPanel.Resources>
                         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="8" DockPanel.Dock="Right" Orientation="Horizontal">
-                            <Button Padding="0" Background="{x:Null}" BorderThickness="0" Command="{Binding ChangeLanguageCommand}">
-                                <fa:FontAwesome Icon="Language" FontSize="32"/>
+                            <Button Command="{Binding ChangeThemeCommand}">
+                                <fa:FontAwesome Icon="Paperclip"/>
                             </Button>
-                            <Button Command="{Binding OpenCompliteShoppingPageCommand}" Padding="0" Background="{x:Null}" BorderThickness="0">
-                                <fa:FontAwesome Icon="ShoppingCart" FontSize="32"/>
+                            <Button Command="{Binding ChangeLanguageCommand}">
+                                <fa:FontAwesome Icon="Language"/>
+                            </Button>
+                            <Button Command="{Binding OpenCompliteShoppingPageCommand}">
+                                <fa:FontAwesome Icon="ShoppingCart"/>
                             </Button>
                         </StackPanel>
                         <TextBlock TextWrapping="Wrap" Text="{Binding SelectedShopSection.Name}" Margin="5" VerticalAlignment="Center" DockPanel.Dock="Left"/>
                     </DockPanel>
                 </Border>
-                <Border CornerRadius="10" Background="#FFC7EDF9" BorderBrush="LightBlue" BorderThickness="1">
+                <Border CornerRadius="10" Background="{DynamicResource ElementBackgroundColour}" BorderBrush="{DynamicResource ElementBorderColour}" BorderThickness="1">
                     <DockPanel Height="40">
                         <CheckBox Name="showSearch" Width="20" Height="20" Margin="1,8" HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Left" IsChecked="True"/>
                         <Button Name="moveFilterBox" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="8" DockPanel.Dock="Right" Background="{x:Null}" BorderThickness="0">
@@ -129,7 +143,7 @@
                         </TextBox>
                     </DockPanel>
                 </Border>
-                <ListBox MouseDoubleClick="ListBox_RemoveProduct" ItemsSource="{Binding ShopingCart}" Background="{x:Null}" BorderThickness="0" Padding="0">
+                <ListBox  MouseDoubleClick="ListBox_RemoveProduct" ItemsSource="{Binding ShopingCart}" Background="{x:Null}" BorderThickness="0" Padding="0">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -149,7 +163,7 @@
                 </ListBox>
             </StackPanel>
         </Border>
-        <TabControl SelectedItem="{Binding SelectedShopSection}" ItemsSource="{Binding ShopSections}" Style="{DynamicResource MyTabControlStyle}" DockPanel.Dock="Left">
+        <TabControl Background="{DynamicResource ListBoxBackgroundColour}" SelectedItem="{Binding SelectedShopSection}" ItemsSource="{Binding ShopSections}" Style="{DynamicResource MyTabControlStyle}" DockPanel.Dock="Left">
             <TabControl.Resources>
                 <Style TargetType="TabItem">
                     <Setter Property="Template">
@@ -164,7 +178,7 @@
                                 </Border>
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsSelected" Value="True">
-                                        <Setter TargetName="Border" Property="Background" Value="LightSkyBlue" />
+                                        <Setter TargetName="Border" Property="Background" Value="{DynamicResource TabSelectedItemColour}" />
                                     </Trigger>
                                     <Trigger Property="IsSelected" Value="False">
                                         <Setter TargetName="Border" Property="Background" Value="GhostWhite" />
@@ -194,7 +208,7 @@
             </TabControl.ItemTemplate>
             <TabControl.ContentTemplate>
                 <DataTemplate>
-                    <ListBox x:Name="ProductsList" MouseDoubleClick="ListBox_MouseDoubleClick" ItemsSource="{Binding Source={StaticResource ProductsGroups}}" DockPanel.Dock="Bottom" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderBrush="{x:Null}">
+                    <ListBox Background="{DynamicResource ListBoxBackgroundColour}" x:Name="ProductsList" MouseDoubleClick="ListBox_MouseDoubleClick" ItemsSource="{Binding Source={StaticResource ProductsGroups}}" DockPanel.Dock="Bottom" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderBrush="{x:Null}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Width="160" Orientation="Horizontal">
