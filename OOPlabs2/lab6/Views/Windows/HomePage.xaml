@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:vm="clr-namespace:lab6.ViewModules"
+      xmlns:v="clr-namespace:lab6.Views.Controls"
       xmlns:fa="http://schemas.fontawesome.io/icons/"
       xmlns:m="clr-namespace:lab6.Models"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
@@ -98,6 +99,14 @@
                             </Style>
                         </DockPanel.Resources>
                         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="8" DockPanel.Dock="Right" Orientation="Horizontal">
+                            <v:SwapButton Width="32">
+                                <v:SwapButton.NotPressedContent>
+                                    <fa:FontAwesome Icon="Plus" FontSize="30"/>
+                                </v:SwapButton.NotPressedContent>
+                                <v:SwapButton.PressedContent>
+                                    <fa:FontAwesome Icon="Check" FontSize="30"/>
+                                </v:SwapButton.PressedContent>
+                            </v:SwapButton>
                             <Button Command="{Binding ChangeThemeCommand}">
                                 <fa:FontAwesome Icon="Paperclip"/>
                             </Button>
