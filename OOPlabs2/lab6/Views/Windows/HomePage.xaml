@@ -7,7 +7,8 @@
       xmlns:fa="http://schemas.fontawesome.io/icons/"
       xmlns:m="clr-namespace:lab6.Models"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:lab6.Views.Windows" 
+      xmlns:local="clr-namespace:lab6.Views.Windows"
+      xmlns:com="clr-namespace:lab6.Infrastructure.Commands"
       d:DataContext="{d:DesignInstance Type=vm:MainWindowViewModel}"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -83,7 +84,8 @@
         <DockPanel.Resources>
             <CollectionViewSource x:Name="ProductsGroups" x:Key="ProductsGroups" Source="{Binding SelectedShopSection.Products}" Filter="CollectionViewSource_Filter"/>
         </DockPanel.Resources>
-        <Border BorderThickness="1" BorderBrush="{DynamicResource ElementBorderColour}" Background="{DynamicResource BackgroundColour}" CornerRadius="15" DockPanel.Dock="Right" Width="200" HorizontalAlignment="Right" Grid.RowSpan="2" Grid.ColumnSpan="2">
+        <Border BorderThickness="1" BorderBrush="{DynamicResource ElementBorderColour}" Background="{DynamicResource BackgroundColour}"
+                CornerRadius="15" DockPanel.Dock="Right" Width="200" HorizontalAlignment="Right" Grid.RowSpan="2" Grid.ColumnSpan="2" >
             <StackPanel>
                 <Border CornerRadius="10" Background="{DynamicResource ElementBackgroundColour}" BorderBrush="{DynamicResource BorderColour}" BorderThickness="1">
                     <DockPanel Height="50">
@@ -138,7 +140,7 @@
                             <Button.Triggers>
                                 <EventTrigger RoutedEvent="Button.Click">
                                     <BeginStoryboard>
-                                        <Storyboard>
+                                        <Storyboard >
                                             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Width" Storyboard.TargetName="FilterBox" Duration="0:0:2">
                                                 <LinearDoubleKeyFrame Value="140" KeyTime="0:0:0"/>
                                                 <LinearDoubleKeyFrame Value="0" KeyTime="0:0:1"/>
@@ -162,12 +164,14 @@
                         </TextBox>
                     </DockPanel>
                 </Border>
-                <ListBox  MouseDoubleClick="ListBox_RemoveProduct" ItemsSource="{Binding ShopingCart}" Background="{x:Null}" BorderThickness="0" Padding="0">
+                <v:CheckButton CheckData="1234" Text="Enter pass" IsShowText="True" Faill="CheckButton_OnFaill" Success="CheckButton_OnSuccess"/>
+                <Button Command="{x:Static com:CommandSet.Exit}" Content="Close" Height="20" IsEnabled="True"/>
+                <ListBox MouseDoubleClick="ListBox_RemoveProduct" ItemsSource="{Binding ShopingCart}" Background="{x:Null}" BorderThickness="0" Padding="0">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="{Binding Image}" Margin="2,0" Width="20" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                                <TextBlock Text="{Binding Name}" Margin="2,0"  VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Name.Current}" Margin="2,0"  VerticalAlignment="Center"/>
                                 <!--<TextBlock Text="{Binding Price, StringFormat=Цена {0}}" Margin="2,0" VerticalAlignment="Center"/>-->
                                 <TextBlock Text="{DynamicResource LS_Price}" Margin="2,0"  VerticalAlignment="Center"/>
                                 <TextBlock Text="{Binding Price}" Margin="2,0" VerticalAlignment="Center"/>
@@ -180,6 +184,9 @@
                         </ItemsPanelTemplate>
                     </ListBox.ItemsPanel>
                 </ListBox>
+                <StackPanel.CommandBindings>
+                    <CommandBinding Command="{x:Static com:CommandSet.Exit}" Executed="CommandBinding_Executed" CanExecute="CommandBinding_CanExecute"/>
+                </StackPanel.CommandBindings>
             </StackPanel>
         </Border>
         <TabControl Background="{DynamicResource ListBoxBackgroundColour}" SelectedItem="{Binding SelectedShopSection}" ItemsSource="{Binding ShopSections}" Style="{DynamicResource MyTabControlStyle}" DockPanel.Dock="Left">

@@ -30,6 +30,14 @@ namespace lab6
             Resources.MergedDictionaries.Add(App.CurrentThemeDictionary);
             App.UpdateTheme += (o, e) => Resources.MergedDictionaries.Add(e);
         }
-        
+        static MainWindow()
+        {
+            Exit = new RoutedCommand("Exit", typeof(MainWindow));
+        }
+        public static RoutedCommand Exit { get; set; }
+        private void Exit_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

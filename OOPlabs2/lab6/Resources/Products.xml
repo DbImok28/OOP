@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfShopSection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ShopSection>
+    <Name>
+      <RuString>Фрукты</RuString>
+      <EnString>Fruits</EnString>
+    </Name>
+    <Icon>/Resources/fruits.png</Icon>
+    <Products>
+      <Product>
+        <Name>
+          <RuString>Яблоко</RuString>
+          <EnString>Apple</EnString>
+        </Name>
+        <FullName>
+          <RuString>Яблоко дружба</RuString>
+          <EnString>Apple Friendship</EnString>
+        </FullName>
+        <Description>
+          <RuString>Яблоко — сочный плод яблони, который употребляется в пищу в свежем и запеченном виде, служит сырьём в кулинарии и для приготовления напитков.</RuString>
+          <EnString>An apple is a succulent fruit of the apple tree that is eaten fresh, baked, and used as a raw material in cooking and beverages.</EnString>
+        </Description>
+        <Country>
+          <RuString>Россия</RuString>
+          <EnString>Russia</EnString>
+        </Country>
+        <Price>15</Price>
+        <Image>/Resources/apple.png</Image>
+      </Product>
+      <Product>
+        <Name>
+          <RuString>Груша</RuString>
+          <EnString>Pear</EnString>
+        </Name>
+        <FullName>
+          <RuString>Груша богатырская</RuString>
+          <EnString>Heroic pear</EnString>
+        </FullName>
+        <Description>
+          <RuString>Груша — род плодовых и декоративных деревьев и кустарников семейства Розовые.</RuString>
+          <EnString>Pear is a genus of fruit and ornamental trees and shrubs of the Rosaceae family.</EnString>
+        </Description>
+        <Country>
+          <RuString>Россия</RuString>
+          <EnString>Russia</EnString>
+        </Country>
+        <Price>20</Price>
+        <Image>/Resources/pear.png</Image>
+      </Product>
+      <Product>
+        <Name>
+          <RuString>Персик</RuString>
+          <EnString>Peach</EnString>
+        </Name>
+        <FullName>
+          <RuString>Персик заморский</RuString>
+          <EnString>Peach overseas</EnString>
+        </FullName>
+        <Description>
+          <RuString>Персик — растение из подрода Миндаль рода Слива семейства Розовые.</RuString>
+          <EnString>Peach is a plant of the Almond subgenus of the Plum genus of the Rosaceae family.</EnString>
+        </Description>
+        <Country>
+          <RuString>Молдавия</RuString>
+          <EnString>Moldova</EnString>
+        </Country>
+        <Price>30</Price>
+        <Image>/Resources/peach.png</Image>
+      </Product>
+      <Product>
+        <Name>
+          <RuString>Лимон</RuString>
+          <EnString>Lemon</EnString>
+        </Name>
+        <FullName>
+          <RuString>Лимон кислый</RuString>
+          <EnString>Sour Lemon</EnString>
+        </FullName>
+        <Description>
+          <RuString />
+          <EnString />
+        </Description>
+        <Country>
+          <RuString>Мексика</RuString>
+          <EnString>Mexico</EnString>
+        </Country>
+        <Price>20</Price>
+        <Image>/Resources/lemon.png</Image>
+      </Product>
+      <Product>
+        <Name>
+          <RuString>Банан</RuString>
+          <EnString>Banana</EnString>
+        </Name>
+        <FullName>
+          <RuString>Банан вкусный</RuString>
+          <EnString>Delicious banana</EnString>
+        </FullName>
+        <Description>
+          <RuString />
+          <EnString />
+        </Description>
+        <Country>
+          <RuString>Эквадор</RuString>
+          <EnString>Ecuador</EnString>
+        </Country>
+        <Price>15</Price>
+        <Image>/Resources/banana.png</Image>
+      </Product>
+    </Products>
+  </ShopSection>
+  <ShopSection>
+    <Name>
+      <RuString>Овощи</RuString>
+      <EnString>Vegetables</EnString>
+    </Name>
+    <Icon>/Resources/vegetables.png</Icon>
+    <Products>
+      <Product>
+        <Name>
+          <RuString>Огурец</RuString>
+          <EnString>Cucumber</EnString>
+        </Name>
+        <FullName>
+          <RuString>Огурец столичный</RuString>
+          <EnString>Cucumber Capital</EnString>
+        </FullName>
+        <Description>
+          <RuString />
+          <EnString />
+        </Description>
+        <Country>
+          <RuString>Беларусь</RuString>
+          <EnString>Belarus</EnString>
+        </Country>
+        <Price>8</Price>
+        <Image>/Resources/cucumber.png</Image>
+      </Product>
+      <Product>
+        <Name>
+          <RuString>Морковь</RuString>
+          <EnString>Carrot</EnString>
+        </Name>
+        <FullName>
+          <RuString>Морква деревенска</RuString>
+          <EnString>Rustic Carrot</EnString>
+        </FullName>
+        <Description>
+          <RuString>Морковь посевная — двулетнее растение, овощная культура, подвид вида морковь дикая. Обычно в быту под словом «морковь» подразумевается широко распространённый корнеплод именно этого растения, который обычно относят к овощам.</RuString>
+          <EnString>Carrot is a biennial plant, a vegetable crop, a subspecies of the wild carrot species. Usually in everyday life, the word "carrot" means the widespread root crop of this particular plant, which is usually referred to as a vegetable.</EnString>
+        </Description>
+        <Country>
+          <RuString>Беларусь</RuString>
+          <EnString>Belarus</EnString>
+        </Country>
+        <Price>8</Price>
+        <Image>/Resources/carrot.png</Image>
+      </Product>
+      <Product>
+        <Name>
+          <RuString>Тыква</RuString>
+          <EnString>Pumpkin</EnString>
+        </Name>
+        <FullName>
+          <RuString>Тыква из хэллоуина</RuString>
+          <EnString>Halloween Pumpkin</EnString>
+        </FullName>
+        <Description>
+          <RuString />
+          <EnString />
+        </Description>
+        <Country>
+          <RuString>Украина</RuString>
+          <EnString>Ukraine</EnString>
+        </Country>
+        <Price>45</Price>
+        <Image>/Resources/pumpkins.png</Image>
+      </Product>
+      <Product>
+        <Name>
+          <RuString>Лук</RuString>
+          <EnString>Bow</EnString>
+        </Name>
+        <FullName>
+          <RuString>Лук зеленый</RuString>
+          <EnString>Green onion</EnString>
+        </FullName>
+        <Description>
+          <RuString />
+          <EnString />
+        </Description>
+        <Country>
+          <RuString>Украина</RuString>
+          <EnString>Ukraine</EnString>
+        </Country>
+        <Price>20</Price>
+        <Image>/Resources/onion.png</Image>
+      </Product>
+      <Product>
+        <Name>
+          <RuString>Капуста</RuString>
+          <EnString>Cabbage</EnString>
+        </Name>
+        <FullName>
+          <RuString>Капуста земная</RuString>
+          <EnString>Ground cabbage</EnString>
+        </FullName>
+        <Description>
+          <RuString />
+          <EnString />
+        </Description>
+        <Country>
+          <RuString>Россия</RuString>
+          <EnString>Russia</EnString>
+        </Country>
+        <Price>20</Price>
+        <Image>/Resources/cabbage.png</Image>
+      </Product>
+    </Products>
+  </ShopSection>
+  <ShopSection>
+    <Name>
+      <RuString>Ягоды</RuString>
+      <EnString>Berries</EnString>
+    </Name>
+    <Icon>/Resources/berries.png</Icon>
+    <Products>
+      <Product>
+        <Name>
+          <RuString>Виноград</RuString>
+          <EnString>Grapes</EnString>
+        </Name>
+        <FullName>
+          <RuString>Виноград кислый</RuString>
+          <EnString>Sour grapes</EnString>
+        </FullName>
+        <Description>
+          <RuString>Виноград — плоды винограда культурного и некоторых других растений рода Виноград, в зрелом виде представляющие собой сладкие ягоды.</RuString>
+          <EnString>Grapes are the fruits of cultivated grapes and some other plants of the genus Grape, which, when ripe, are sweet berries.</EnString>
+        </Description>
+        <Country>
+          <RuString>Италия</RuString>
+          <EnString>Italy</EnString>
+        </Country>
+        <Price>10</Price>
+        <Image>/Resources/grapes.png</Image>
+      </Product>
+      <Product>
+        <Name>
+          <RuString>Черника</RuString>
+          <EnString>Blueberries</EnString>
+        </Name>
+        <FullName>
+          <RuString>Черника ночная</RuString>
+          <EnString>Night Blueberry</EnString>
+        </FullName>
+        <Description>
+          <RuString />
+          <EnString />
+        </Description>
+        <Country>
+          <RuString>Россия</RuString>
+          <EnString>Russia</EnString>
+        </Country>
+        <Price>20</Price>
+        <Image>/Resources/blueberry.png</Image>
+      </Product>
+      <Product>
+        <Name>
+          <RuString>Вишня</RuString>
+          <EnString>Cherry</EnString>
+        </Name>
+        <FullName>
+          <RuString>Вишня синяя</RuString>
+          <EnString>Blue Cherry</EnString>
+        </FullName>
+        <Description>
+          <RuString />
+          <EnString />
+        </Description>
+        <Country>
+          <RuString>Германия</RuString>
+          <EnString>Germany</EnString>
+        </Country>
+        <Price>20</Price>
+        <Image>/Resources/cherry.png</Image>
+      </Product>
+    </Products>
+  </ShopSection>
+</ArrayOfShopSection>

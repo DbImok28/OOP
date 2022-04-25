@@ -64,9 +64,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Infrastructure\Commands\CommandSet.cs" />
     <Compile Include="Models\FileReader.cs" />
+    <Compile Include="Models\LocString.cs" />
     <Compile Include="ViewModules\HistoryCollection.cs" />
     <Compile Include="ViewModules\HistorySnapshot.cs" />
+    <Compile Include="Views\Controls\CheckButton.xaml.cs">
+      <DependentUpon>CheckButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Controls\SwapButton.xaml.cs">
       <DependentUpon>SwapButton.xaml</DependentUpon>
     </Compile>
@@ -92,6 +97,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Resources\TextLocalization.en.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\CheckButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

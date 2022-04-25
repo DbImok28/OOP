@@ -10,16 +10,16 @@ namespace lab6.Models
     [Serializable]
     public class ShopSection
     {
-        public string Name { get; set; }
+        public LocString Name { get; set; }
         public string Icon { get; set; }
         public ObservableCollection<Product> Products { get; set; }
         public ShopSection()
         {
-            Name = "None";
+            Name = new LocString();
             Icon = "None";
             Products = new ObservableCollection<Product>();
         }
-        public ShopSection(string name, string icon, ObservableCollection<Product> products)
+        public ShopSection(LocString name, string icon, ObservableCollection<Product> products)
         {
             Name = name;
             Icon = icon;

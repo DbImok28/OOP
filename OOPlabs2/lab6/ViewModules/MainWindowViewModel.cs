@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -103,7 +100,8 @@ namespace lab6.ViewModules
         private void OnChangeLanguageCommandExecuted(object par)
         {
             //App.ChangeLanguage(par as string);
-            if(App.CurrentLanguage == "ru")
+            LocString.IsSelectedRuLan = !LocString.IsSelectedRuLan;
+            if (App.CurrentLanguage == "ru")
             {
                 App.ChangeLanguage("en");
             }
@@ -185,8 +183,12 @@ namespace lab6.ViewModules
             UndoCommand = new Infrastructure.Commands.LambdaCommand(OnUndoCommandExecuted, CanUndoCommandExecute);
             RedoCommand = new Infrastructure.Commands.LambdaCommand(OnRedoCommandExecuted, CanRedoCommandExecute);
             #endregion 
-            App.UpdateLanguage += (o,e)=> ShopSections = FileReader.DeserializeXML<ObservableCollection<ShopSection>>($"Products_{App.CurrentLanguage}.xml");
-            ShopSections = FileReader.DeserializeXML<ObservableCollection<ShopSection>>($"Products_{App.CurrentLanguage}.xml");
+            //App.UpdateLanguage += (o, e) => ShopSections = FileReader.DeserializeXML<ObservableCollection<ShopSection>>($"Products_{App.CurrentLanguage}.xml");
+            //ShopSections = FileReader.DeserializeXML<ObservableCollection<ShopSection>>($"Products_{App.CurrentLanguage}.xml");
+
+            App.UpdateLanguage += (o, e) => OnPropertyChanged("ShopSections");
+            ShopSections = FileReader.DeserializeXML<ObservableCollection<ShopSection>>($"Products.xml");
+
             SelectedShopSection = ShopSections[0];
             productInfoPage = new ProductInfoPage(this, RemoveProductFromShoppingCartCommand);
             compliteShopingPage = new CompliteShopingPage(this, RemoveProductFromShoppingCartCommand, ClearCartCommand);

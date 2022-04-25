@@ -1,4 +1,5 @@
-﻿using lab6.Models;
+﻿using lab6.Infrastructure.Commands;
+using lab6.Models;
 using lab6.ViewModules;
 using System;
 using System.Collections.Generic;
@@ -51,7 +52,7 @@ namespace lab6.Views.Windows
         {
             if (!(e.Item is Product product) || product is null) return;
             var filterText = FilterBox.Text;
-            if (Contains(product.Name, filterText, StringComparison.OrdinalIgnoreCase)) return;
+            if (Contains(product.Name.Current, filterText, StringComparison.OrdinalIgnoreCase)) return;
             e.Accepted = false;
         }
 
@@ -66,5 +67,22 @@ namespace lab6.Views.Windows
             var product = (sender as ListBox).SelectedItem as Product;
             RemoveProduct.Execute(product);
         }
+
+        private void CheckButton_OnSuccess(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Верно");
+        }
+
+        private void CheckButton_OnFaill(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Неверно");
+        }
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            CommandSet.Exit_Executed(sender, e);
+        }
+
+        private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e) => e.CanExecute = true;
     }
 }

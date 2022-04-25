@@ -9,7 +9,7 @@ namespace lab6.Models
     [Serializable]
     public class Product
     {
-        public Product(string name, string fullName, int price, string image, string description, string country)
+        public Product(LocString name, LocString fullName, int price, string image, LocString description, LocString country)
         {
             Name = name;
             FullName = fullName;
@@ -20,18 +20,18 @@ namespace lab6.Models
         }
         public Product()
         {
-            Name = "None";
-            FullName = "None";
+            Name = new LocString();
+            FullName = new LocString();
             Price = -1;
-            Image = "None";
-            Description = "None";
-            Country = "None";
+            Image = "";
+            Description = new LocString();
+            Country = new LocString();
         }
 
-        public string Name { get; set; }
-        public string FullName { get; set; }
-        public string Description { get; set; }
-        public string Country { get; set; }
+        public LocString Name { get; set; }
+        public LocString FullName { get; set; }
+        public LocString Description { get; set; }
+        public LocString Country { get; set; }
         public decimal Price { get; set; }
         public string Image { get; set; }
     }
