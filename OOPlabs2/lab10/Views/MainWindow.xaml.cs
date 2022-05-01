@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Tests
+namespace lab10
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,11 +23,6 @@ namespace Tests
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void ScrollBar_ValueChanged()
-        {
-
         }
     }
 }
