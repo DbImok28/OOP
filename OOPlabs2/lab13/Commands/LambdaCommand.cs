@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace lab11.Commands
+namespace lab13.Commands
 {
     internal class LambdaCommand : BaseCommand
     {

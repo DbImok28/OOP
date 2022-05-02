@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace lab12
+namespace lab13
 {
     /// <summary>
     /// Interaction logic for App.xaml

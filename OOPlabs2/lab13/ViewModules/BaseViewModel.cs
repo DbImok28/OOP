@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lab11.ViewModules
+namespace lab13.ViewModules
 {
     internal abstract class BaseViewModel : INotifyPropertyChanged
     {
