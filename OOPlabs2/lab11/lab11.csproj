@@ -189,18 +189,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DBDashCode.cs" />
+    <Compile Include="Enities\ChatMessages.cs" />
+    <Compile Include="Enities\Chats.cs" />
+    <Compile Include="Enities\ChatUser.cs" />
     <Compile Include="Commands\BaseCommand.cs" />
     <Compile Include="Commands\LambdaCommand.cs" />
     <Compile Include="Converters\ToValueConverter.cs" />
-    <Compile Include="ViewModules\BaseViewModel.cs" />
-    <Compile Include="DashCodeBDContext.cs" />
-    <Compile Include="ViewModules\MainWindowViewModel.cs" />
-    <Compile Include="Migrations\20220426090135_initial.cs" />
-    <Compile Include="Migrations\20220426090135_initial.designer.cs">
-      <DependentUpon>20220426090135_initial.cs</DependentUpon>
+    <Compile Include="Enities\DashCodeBDContext.cs" />
+    <Compile Include="Enities\Users.cs" />
+    <Compile Include="Migrations\20220502122427_initial.cs" />
+    <Compile Include="Migrations\20220502122427_initial.designer.cs">
+      <DependentUpon>20220502122427_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DashCodeBDContextModelSnapshot.cs" />
-    <Compile Include="Enities\Users.cs" />
+    <Compile Include="ViewModules\BaseViewModel.cs" />
+    <Compile Include="ViewModules\MainWindowViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -209,9 +213,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Enities\ChatMessages.cs" />
-    <Compile Include="Enities\Chats.cs" />
-    <Compile Include="Enities\ChatUser.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -244,6 +245,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

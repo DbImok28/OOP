@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace test2.Migrations
+namespace lab11.Migrations
 {
     public partial class initial : Migration
     {
@@ -28,7 +28,7 @@ namespace test2.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NAME = table.Column<string>(unicode: false, maxLength: 32, nullable: false),
                     LOGIN = table.Column<string>(unicode: false, maxLength: 32, nullable: false),
-                    PASSWORD_HASH = table.Column<string>(unicode: false, maxLength: 20, nullable: false),
+                    PASSWORD_HASH = table.Column<byte[]>(maxLength: 20, nullable: false),
                     PHOTO = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
@@ -102,6 +102,12 @@ namespace test2.Migrations
                 name: "IX_CHAT_USER_USER_ID",
                 table: "CHAT_USER",
                 column: "USER_ID");
+
+            migrationBuilder.CreateIndex(
+                name: "LOGIN_UN",
+                table: "USERS",
+                column: "LOGIN",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

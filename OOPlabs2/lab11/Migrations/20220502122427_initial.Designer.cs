@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using lab11;
 
-namespace test2.Migrations
+namespace lab11.Migrations
 {
     [DbContext(typeof(DashCodeBDContext))]
-    [Migration("20220426090135_initial")]
+    [Migration("20220502122427_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -116,12 +116,11 @@ namespace test2.Migrations
                         .HasMaxLength(32)
                         .IsUnicode(false);
 
-                    b.Property<string>("PasswordHash")
+                    b.Property<byte[]>("PasswordHash")
                         .IsRequired()
                         .HasColumnName("PASSWORD_HASH")
-                        .HasColumnType("varchar(20)")
-                        .HasMaxLength(20)
-                        .IsUnicode(false);
+                        .HasColumnType("varbinary(20)")
+                        .HasMaxLength(20);
 
                     b.Property<byte[]>("Photo")
                         .HasColumnName("PHOTO")
@@ -129,6 +128,10 @@ namespace test2.Migrations
 
                     b.HasKey("UserId")
                         .HasName("USER_ID_PK");
+
+                    b.HasIndex("Login")
+                        .IsUnique()
+                        .HasName("LOGIN_UN");
 
                     b.ToTable("USERS");
                 });

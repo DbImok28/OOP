@@ -392,6 +392,15 @@ namespace lab10.ViewModules
             try
             {
                 BDConnection.Open();
+
+                var adapter = new SqlDataAdapter("SELECT * FROM USERS", BDConnection);
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                var commandBuilder = new SqlCommandBuilder(adapter);
+                adapter.Update(dataSet);
+                
+
                 new SqlCommand("CREATE TABLE test(name nvarchar(32), age int)", BDConnection).ExecuteNonQuery();
                 new SqlCommand("INSERT INTO test(name, age) VALUES('vasa', 23)", BDConnection).ExecuteNonQuery();
                 new SqlCommand("UPDATE test SET age = 25 WHERE name = 'vasa'", BDConnection).ExecuteNonQuery();

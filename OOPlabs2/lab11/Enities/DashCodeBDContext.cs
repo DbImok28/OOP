@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Configuration;
+using System.Windows;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.IdentityModel.Protocols;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
@@ -14,7 +14,14 @@ namespace lab11
     {
         public DashCodeBDContext()
         {
-            Database.Migrate();
+            try
+            {
+                Database.Migrate();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         public DashCodeBDContext(DbContextOptions<DashCodeBDContext> options)
@@ -29,6 +36,7 @@ namespace lab11
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+
             if (!optionsBuilder.IsConfigured)
             {
                 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
@@ -117,6 +125,10 @@ namespace lab11
 
                 entity.ToTable("USERS");
 
+                entity.HasIndex(e => e.Login)
+                    .HasName("LOGIN_UN")
+                    .IsUnique();
+
                 entity.Property(e => e.UserId).HasColumnName("USER_ID");
 
                 entity.Property(e => e.Login)
@@ -134,8 +146,7 @@ namespace lab11
                 entity.Property(e => e.PasswordHash)
                     .IsRequired()
                     .HasColumnName("PASSWORD_HASH")
-                    .HasMaxLength(20)
-                    .IsUnicode(false);
+                    .HasMaxLength(20);
 
                 entity.Property(e => e.Photo).HasColumnName("PHOTO");
             });

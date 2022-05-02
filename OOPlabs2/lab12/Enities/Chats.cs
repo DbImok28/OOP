@@ -7,19 +7,16 @@ using System.Collections.Generic;
 
 namespace lab11
 {
-    public partial class Users
+    public partial class Chats
     {
-        public Users()
+        public Chats()
         {
             ChatMessages = new HashSet<ChatMessages>();
             ChatUser = new HashSet<ChatUser>();
         }
 
-        public int UserId { get; set; }
+        public int ChatId { get; set; }
         public string Name { get; set; }
-        public string Login { get; set; }
-        public byte[] PasswordHash { get; set; }
-        public byte[] Photo { get; set; }
 
         public virtual ICollection<ChatMessages> ChatMessages { get; set; }
         public virtual ICollection<ChatUser> ChatUser { get; set; }
