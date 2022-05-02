@@ -41,6 +41,7 @@ namespace lab11.ViewModules
                 PasswordHash = new byte[20]
             };
             DataBase.Add(user);
+            DataBase.SaveChanges();
             UpdateTables();
         }
         public ICommand RemoveUserCommand { get; }
@@ -49,6 +50,7 @@ namespace lab11.ViewModules
             var value = par as string;
             if (DataBase.Remove((Users x) => x.Name == value))
             {
+                DataBase.SaveChanges();
                 UpdateTables();
             }
         }
@@ -67,6 +69,7 @@ namespace lab11.ViewModules
                 Login = $"{target}@mail",
                 PasswordHash = new byte[20]
             });
+            DataBase.SaveChanges();
             UpdateTables();
         }
         private bool CanUpdateUserCommandExecute(object par) => UserCol.Count > 0;
@@ -87,6 +90,7 @@ namespace lab11.ViewModules
                 Name = value
             };
             DataBase.Add(chat);
+            DataBase.SaveChanges();
             UpdateTables();
         }
         public ICommand RemoveChatCommand { get; }
@@ -95,6 +99,7 @@ namespace lab11.ViewModules
             var value = par as string;
             if (DataBase.Remove((Chats x) => x.Name == value))
             {
+                DataBase.SaveChanges();
                 UpdateTables();
             }
         }
@@ -116,6 +121,7 @@ namespace lab11.ViewModules
                 ChatId = id,
                 Name = target,
             });
+            DataBase.SaveChanges();
             UpdateTables();
         }
         private bool CanUpdateChatCommandExecute(object par) => ChatsCol.Count > 0;

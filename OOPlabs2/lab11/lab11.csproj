@@ -198,6 +198,8 @@
     <Compile Include="Converters\ToValueConverter.cs" />
     <Compile Include="Enities\DashCodeBDContext.cs" />
     <Compile Include="Enities\Users.cs" />
+    <Compile Include="IDBRepository.cs" />
+    <Compile Include="IDBUnitOfWork.cs" />
     <Compile Include="Migrations\20220502122427_initial.cs" />
     <Compile Include="Migrations\20220502122427_initial.designer.cs">
       <DependentUpon>20220502122427_initial.cs</DependentUpon>

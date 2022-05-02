@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace lab11
 {
-    public class DBDashCode
+    public class DBDashCode : IDBRepository<Users>, IDBRepository<Chats>, IDBUnitOfWork
     {
         private DashCodeBDContext context;
         public DBDashCode()
@@ -22,7 +22,7 @@ namespace lab11
         public void Add(Users item)
         {
             context.Users.Add(item);
-            context.SaveChanges();
+            //SaveChanges();
         }
         public void Update(Func<Users, bool> func, Func<int, Users> item)
         {
@@ -38,9 +38,9 @@ namespace lab11
             //    context.Entry(user)
             //        .Property(c => c.Name).IsModified = true;
             //}
-            var user = context.Users.Where(func).First();
+            var user = context.Users.First(func);
             context.Entry(user).CurrentValues.SetValues(item(user.UserId));
-            context.SaveChanges();
+            //SaveChanges();
         }
         public bool Remove(Func<Users, bool> func)
         {
@@ -48,7 +48,7 @@ namespace lab11
             if (toDel.Count > 0)
             {
                 context.Users.RemoveRange(toDel);
-                context.SaveChanges();
+                //SaveChanges();
                 return true;
             }
             return false;
@@ -57,39 +57,13 @@ namespace lab11
         public void Add(Chats item)
         {
             context.Chats.Add(item);
-            context.SaveChanges();
+            //SaveChanges();
         }
         public void Update(Func<Chats, bool> func, Func<int, Chats> item)
         {
-
-            //var entity = Chats.Find(name);
-            //if (entity == null)
-            //{
-            //    return;
-            //}
-
-            //IEnumerable<Chats> chats = context.Chats
-            //.Where(func)
-            //.Select(c => c.ChatId)
-            //.AsEnumerable()
-            //.Select(item);
-            //Chats chat = context.Chats
-            //.Where(func)
-            //.Select(c => c.ChatId)
-            //.AsEnumerable()
-            //.Select(item).First();
-
-            //foreach (var chat in chats)
-            //{
-            //    context.Chats.Attach(chat);
-            //    //context.Entry(chat).State = EntityState.Modified;
-            //    context.Entry(chat).Property(c => c.Name).IsModified = true;
-
-            //}
-            var chat = context.Chats.Where(func).First();
+            var chat = context.Chats.First(func);
             context.Entry(chat).CurrentValues.SetValues(item(chat.ChatId));
-            context.SaveChanges();
-
+            //SaveChanges();
         }
         public bool Remove(Func<Chats, bool> func)
         {
@@ -97,10 +71,20 @@ namespace lab11
             if (toDel.Count > 0)
             {
                 context.Chats.RemoveRange(toDel);
-                context.SaveChanges();
+                //SaveChanges();
                 return true;
             }
             return false;
+        }
+
+        public void SaveChanges()
+        {
+            context.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            SaveChanges();
         }
     }
 }
